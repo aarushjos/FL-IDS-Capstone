@@ -18,7 +18,7 @@ NUM_CLASSES = CONFIG["model"]["num_classes"]
 HIDDEN_DIMS = CONFIG["model"]["hidden_dims"]
 
 # Options: "fedavg" or "robust"
-STRATEGY_NAME = "robust"
+STRATEGY_NAME = "fedavg"
 
 
 def check_partitions_exist():
@@ -61,17 +61,25 @@ def client_fn(cid: str):
         val_loader=val_loader,
         model=model,
         config={
-            "local_epochs": CONFIG["federated"].get("local_epochs", 1),
-            "lr": CONFIG["federated"].get("learning_rate", 1e-3),
+            "local_epochs": CONFIG["federated"].get(
+                "local_epochs",
+                1,
+            ),
+            "lr": CONFIG["federated"].get(
+                "learning_rate",
+                1e-3,
+            ),
             "device": "cpu",
             "num_classes": NUM_CLASSES,
 
-            #config to change attack type and parameters
+            # Sign-flipping attack
             "is_poisoned": is_poisoned,
+            "attack_type": "sign_flip",
             "attack_start_round": 1,
-            "attack_type": "label_flip",
-            "source_class": 1,
-            "target_class": 0,
+            "sign_flip_scale": 10.0,
+
+            # Disable gradient clipping for the first baseline.
+            "gradient_clip_norm": None,
         },
     )
 
@@ -91,6 +99,11 @@ def weighted_average(metrics):
 
     return {"val_accuracy": float(val_accuracy)}
 
+def fit_config(server_round: int):
+    return {
+        "server_round": server_round,
+    }
+
 
 def build_strategy():
     initial_model = make_model()
@@ -100,8 +113,9 @@ def build_strategy():
 
     if STRATEGY_NAME == "robust":
         return RobustFLIDSStrategy(
-            initial_parameters=initial_parameters,
-        )
+        initial_parameters=initial_parameters,
+        on_fit_config_fn=fit_config,
+    )
 
     return fl.server.strategy.FedAvg(
         fraction_fit=0.4,
@@ -110,6 +124,7 @@ def build_strategy():
         min_evaluate_clients=20,
         min_available_clients=NUM_CLIENTS,
         initial_parameters=initial_parameters,
+        on_fit_config_fn=fit_config,
         evaluate_metrics_aggregation_fn=weighted_average,
     )
 

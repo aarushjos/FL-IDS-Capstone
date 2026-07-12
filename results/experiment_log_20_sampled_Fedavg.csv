@@ -9,6 +9,14 @@ label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,5,2,0.0579822911,0.98355844
 label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,5,3,0.0566664203,0.9824312219
 
 
+gradient_clipping_fedavg,FedAvg,50,20,None,0.0,1,0.1389372597,0.9780673645
+gradient_clipping_fedavg,FedAvg,50,20,None,0.0,2,0.0753826930,0.9804626194
+gradient_clipping_fedavg,FedAvg,50,20,None,0.0,3,0.1198279493,0.9681342306
+
+gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1936075691,0.9701819802
+gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0541516128,0.9817360909
+gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0452455013,0.9852273142
+
 
 layernorm_fedavg,FedAvg,50,20,None,0.0,1,0.2154437644,0.9592056376
 layernorm_fedavg,FedAvg,50,20,None,0.0,2,0.0656654723,0.9857421553
@@ -17,3 +25,12 @@ layernorm_fedavg,FedAvg,50,20,None,0.0,3,0.0481148570,0.9867811850
 layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1300312241,0.9751773393
 layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0661647951,0.9846787779
 layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0398418589,0.9891169549
+
+
+layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,1,0.1196415278,0.9717941866
+layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,2,0.0713760316,0.9770114943
+layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,3,0.0389162315,0.9891995026
+
+layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1569301603,0.9711853706
+layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0369262920,0.9888809415
+layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0328868081,0.9901952395
