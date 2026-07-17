@@ -18,7 +18,7 @@ NUM_CLASSES = CONFIG["model"]["num_classes"]
 HIDDEN_DIMS = CONFIG["model"]["hidden_dims"]
 
 # Options: "fedavg" or "robust"
-STRATEGY_NAME = "fedavg"
+STRATEGY_NAME = "robust"
 
 
 def check_partitions_exist():
@@ -46,7 +46,7 @@ def make_model():
 
 def client_fn(cid: str):
     cid_int = int(cid)
-    is_poisoned = False
+    is_poisoned = cid_int < 5
 
     train_loader, val_loader = load_partition_dataloaders(
         client_id=cid_int,
@@ -76,10 +76,10 @@ def client_fn(cid: str):
             "is_poisoned": is_poisoned,
             "attack_type": "sign_flip",
             "attack_start_round": 1,
-            "sign_flip_scale": 10.0,
+            "sign_flip_scale": 1.0,
 
             # Disable gradient clipping for the first baseline.
-            "gradient_clip_norm": None,
+            "gradient_clip_norm": 1.0,
         },
     )
 

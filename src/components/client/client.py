@@ -326,7 +326,7 @@ class FLIDSClient(fl.client.NumPyClient):
             sign_flip_scale = float(
                 self.config.get(
                     "sign_flip_scale",
-                    10.0,
+                    1.0,
                 )
             )
             print(

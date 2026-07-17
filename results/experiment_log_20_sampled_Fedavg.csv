@@ -8,6 +8,10 @@ label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,5,1,0.2735860591,0.97855999
 label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,5,2,0.0579822911,0.9835584457
 label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,5,3,0.0566664203,0.9824312219
 
+sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,1,3.5814988363,0.0084376588
+sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,2,3.8169562102,0.0319760037
+sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,3,0.4406109659,0.9490738460
+
 
 gradient_clipping_fedavg,FedAvg,50,20,None,0.0,1,0.1389372597,0.9780673645
 gradient_clipping_fedavg,FedAvg,50,20,None,0.0,2,0.0753826930,0.9804626194
@@ -16,6 +20,10 @@ gradient_clipping_fedavg,FedAvg,50,20,None,0.0,3,0.1198279493,0.9681342306
 gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1936075691,0.9701819802
 gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0541516128,0.9817360909
 gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0452455013,0.9852273142
+
+gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,1,0.5131326113,0.9662663608
+gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,2,0.0673775200,0.9842350933
+gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,3,0.0752524273,0.9798376846
 
 
 layernorm_fedavg,FedAvg,50,20,None,0.0,1,0.2154437644,0.9592056376
@@ -26,6 +34,10 @@ layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1300312241,0.
 layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0661647951,0.9846787779
 layernorm_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0398418589,0.9891169549
 
+layernorm_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,1,0.2966879332,0.9561543556
+layernorm_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,2,0.0625553171,0.9837604790
+layernorm_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,3,0.0451012773,0.9863077963
+
 
 layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,1,0.1196415278,0.9717941866
 layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,2,0.0713760316,0.9770114943
@@ -34,3 +46,8 @@ layernorm_gradient_clipping_fedavg,FedAvg,50,20,None,0.0,3,0.0389162315,0.989199
 layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,1,0.1569301603,0.9711853706
 layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,2,0.0369262920,0.9888809415
 layernorm_gradient_clipping_label_flip_10pct_fedavg,FedAvg,50,20,label_flip,0.10,3,0.0328868081,0.9901952395
+
+layernorm_gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,1,0.1602007036,0.9772902976
+layernorm_gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,2,0.0372070031,0.9877085645
+layernorm_gradient_clipping_sign_flip_10pct_fedavg,FedAvg,50,20,sign_flip,0.10,3,0.0361687678,0.9882241022
+

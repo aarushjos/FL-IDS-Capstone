@@ -25,7 +25,7 @@ class MLPClassifier(nn.Module):
         for h in hidden_dims:
             layers += [
                 nn.Linear(in_dim, h),
-                nn.BatchNorm1d(h),
+                nn.LayerNorm(h),
                 nn.LeakyReLU(negative_slope=0.01),
                 nn.Dropout(p=dropout_rate),
             ]
