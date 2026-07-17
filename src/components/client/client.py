@@ -1,4 +1,3 @@
-
 import sys
 from typing import Dict, List, Tuple, Optional, Any
 
@@ -25,17 +24,14 @@ from src.components.client.attacker import (
 
 class FLIDSClient(fl.client.NumPyClient):
     """
-    Flower client representing one IoT Edge Gateway.
+    Flower client representing one IoT edge gateway.
 
-    The client:
-    - receives global model parameters from the server
-    - trains locally on private data
-    - returns only model parameters, never raw data
+    Supported attacks:
+    - Label flipping: modifies labels during local training.
+    - Sign flipping: reverses and scales the client's model update.
+    - Backdoor: injects a trigger into raw local training samples.
 
-    Attack injection (if is_poisoned=True) is handled inside fit():
-    - Label-flip: applied per-batch on tensor labels (no raw data needed)
-    - Backdoor:   requires raw numpy arrays — pass X_train_raw + y_train_raw
-                  to __init__ and a poisoned DataLoader is rebuilt in fit()
+    Raw client data is never sent to the server.
     """
 
     def __init__(
@@ -54,24 +50,48 @@ class FLIDSClient(fl.client.NumPyClient):
         self.model = model
         self.config = config or {}
 
-        # Raw numpy arrays — required for backdoor injection (label-flip works per-batch)
+        # Required only for backdoor injection and class-weight calculation.
         self.X_train_raw = X_train_raw
         self.y_train_raw = y_train_raw
 
         self.device = torch.device(
-            self.config.get("device", "cuda" if torch.cuda.is_available() else "cpu")
+            self.config.get(
+                "device",
+                "cuda" if torch.cuda.is_available() else "cpu",
+            )
         )
         self.model.to(self.device)
 
-        self.local_epochs = int(self.config.get("local_epochs", 1))
-        self.lr = float(self.config.get("lr", 1e-3))
-        self.weight_decay = float(self.config.get("weight_decay", 0.0))
+        self.local_epochs = int(
+            self.config.get("local_epochs", 1)
+        )
+        self.lr = float(
+            self.config.get("lr", 1e-3)
+        )
+        self.weight_decay = float(
+            self.config.get("weight_decay", 0.0)
+        )
 
-        self.is_poisoned = bool(self.config.get("is_poisoned", False))
-        self.weight_cap = float(self.config.get("weight_cap", 10.0))
-        self.num_classes = int(self.config.get("num_classes", 27))
+        self.is_poisoned = bool(
+            self.config.get("is_poisoned", False)
+        )
+        self.weight_cap = float(
+            self.config.get("weight_cap", 10.0)
+        )
+        self.num_classes = int(
+            self.config.get("num_classes", 27)
+        )
 
-    def get_parameters(self, config) -> List[np.ndarray]:
+        # Set to None or 0 to disable clipping.
+        self.gradient_clip_norm = self.config.get(
+            "gradient_clip_norm",
+            None,
+        )
+
+    def get_parameters(
+        self,
+        config,
+    ) -> List[np.ndarray]:
         return get_model_parameters(self.model)
 
     def fit(
@@ -79,45 +99,99 @@ class FLIDSClient(fl.client.NumPyClient):
         parameters: List[np.ndarray],
         config,
     ) -> Tuple[List[np.ndarray], int, Dict[str, float]]:
+
+        # Load the latest global model received from the server.
         set_model_parameters(self.model, parameters)
 
-        # ── Attack gate ───────────────────────────────────────────────────────
-        server_round    = int(config.get("server_round", 0))
-        attack_start    = int(self.config.get("attack_start_round", 11))
-        attack_active   = self.is_poisoned and (server_round >= attack_start)
-        attack_type     = self.config.get("attack_type", "label_flip")
-        source_class    = int(self.config.get("source_class", 1))
-        target_class    = int(self.config.get("target_class", 0))
+        # Save an untouched copy of the global model.
+        # Sign flipping operates on:
+        # local_update = local_parameters - global_parameters
+        global_parameters = [
+            np.array(layer, copy=True)
+            for layer in parameters
+        ]
 
-        # ── Backdoor: rebuild DataLoader with poisoned raw data ───────────────
-        # Requires X_train_raw / y_train_raw passed at construction time.
+        # ── Attack configuration ──────────────────────────────────────
+        server_round = int(
+            config.get("server_round", 0)
+        )
+        attack_start = int(
+            self.config.get("attack_start_round", 1)
+        )
+        attack_type = str(
+            self.config.get("attack_type", "none")
+        ).lower()
+
+        attack_active = (
+            self.is_poisoned
+            and server_round >= attack_start
+            and attack_type != "none"
+        )
+
+        source_class = int(
+            self.config.get("source_class", 1)
+        )
+        target_class = int(
+            self.config.get("target_class", 0)
+        )
+
+        # ── Backdoor DataLoader ───────────────────────────────────────
         active_loader = self.train_loader
+
         if attack_active and attack_type in ("backdoor", "both"):
-            if self.X_train_raw is not None and self.y_train_raw is not None:
-                trigger_idx    = self.config.get("trigger_feature_idx", [0, 5])
-                trigger_vals   = self.config.get("trigger_values",       [999999, 1])
-                inject_ratio   = float(self.config.get("inject_ratio",   0.1))
-                X_p, y_p = inject_backdoor_trigger(
-                    self.X_train_raw, self.y_train_raw,
-                    trigger_idx, trigger_vals, inject_ratio,
+            if (
+                self.X_train_raw is not None
+                and self.y_train_raw is not None
+            ):
+                trigger_idx = self.config.get(
+                    "trigger_feature_idx",
+                    [0, 5],
                 )
-                dataset = TensorDataset(
-                    torch.tensor(X_p, dtype=torch.float32),
-                    torch.tensor(y_p, dtype=torch.long),
+                trigger_vals = self.config.get(
+                    "trigger_values",
+                    [999999, 1],
                 )
+                inject_ratio = float(
+                    self.config.get("inject_ratio", 0.1)
+                )
+
+                X_poisoned, y_poisoned = inject_backdoor_trigger(
+                    self.X_train_raw,
+                    self.y_train_raw,
+                    trigger_idx,
+                    trigger_vals,
+                    inject_ratio,
+                )
+
+                poisoned_dataset = TensorDataset(
+                    torch.tensor(
+                        X_poisoned,
+                        dtype=torch.float32,
+                    ),
+                    torch.tensor(
+                        y_poisoned,
+                        dtype=torch.long,
+                    ),
+                )
+
                 active_loader = DataLoader(
-                    dataset,
+                    poisoned_dataset,
                     batch_size=self.train_loader.batch_size or 64,
                     shuffle=True,
                     drop_last=True,
                 )
-                logging.info(f"[Client {self.cid}] Backdoor DataLoader rebuilt.")
+
+                logging.info(
+                    f"[Client {self.cid}] "
+                    f"Backdoor DataLoader rebuilt."
+                )
             else:
                 logging.warning(
-                    f"[Client {self.cid}] Backdoor requested but raw arrays not provided — skipping."
+                    f"[Client {self.cid}] Backdoor requested, "
+                    f"but raw arrays were not provided."
                 )
 
-        # ── Training loop ─────────────────────────────────────────────────────
+        # ── Optimizer ─────────────────────────────────────────────────
         self.model.train()
 
         optimizer = torch.optim.Adam(
@@ -126,37 +200,79 @@ class FLIDSClient(fl.client.NumPyClient):
             weight_decay=self.weight_decay,
         )
 
-        # Weighted loss: matches centralized baseline — boosts rare attack classes
+        # ── Class-weighted loss ───────────────────────────────────────
         if self.y_train_raw is not None:
             y_for_weights = self.y_train_raw
         else:
-            y_for_weights = np.concatenate(
-                [y_batch.numpy() for _, y_batch in active_loader]
-            )
+            label_batches = [
+                y_batch.detach().cpu().numpy()
+                for _, y_batch in active_loader
+            ]
+
+            if label_batches:
+                y_for_weights = np.concatenate(label_batches)
+            else:
+                y_for_weights = np.array([], dtype=np.int64)
+
         classes = np.arange(self.num_classes)
+
         try:
-            raw_w = compute_class_weight(
-                class_weight="balanced", classes=classes, y=y_for_weights
+            if len(y_for_weights) == 0:
+                raise ValueError("No labels available.")
+
+            raw_weights = compute_class_weight(
+                class_weight="balanced",
+                classes=classes,
+                y=y_for_weights,
             )
         except Exception:
-            raw_w = np.ones(self.num_classes)
-        capped_w = np.clip(raw_w, None, self.weight_cap)
-        weight_tensor = torch.tensor(capped_w, dtype=torch.float32).to(self.device)
-        loss_fn = nn.CrossEntropyLoss(weight=weight_tensor)
+            raw_weights = np.ones(
+                self.num_classes,
+                dtype=np.float32,
+            )
+
+        capped_weights = np.clip(
+            raw_weights,
+            a_min=None,
+            a_max=self.weight_cap,
+        )
+
+        weight_tensor = torch.tensor(
+            capped_weights,
+            dtype=torch.float32,
+            device=self.device,
+        )
+
+        loss_fn = nn.CrossEntropyLoss(
+            weight=weight_tensor
+        )
 
         total_loss = 0.0
         total_examples = 0
         correct = 0
 
+        # ── Local training ────────────────────────────────────────────
         for _ in range(self.local_epochs):
             for x, y in active_loader:
                 x = x.to(self.device).float()
                 y = y.to(self.device).long()
 
-                # ── Label-flip attack (per-batch, no raw data required) ───────
-                if attack_active and attack_type in ("label_flip", "both"):
-                    y_np = flip_labels(y.cpu().numpy(), source_class, target_class)
-                    y = torch.tensor(y_np, dtype=torch.long, device=self.device)
+                # Label-flipping is a data-poisoning attack.
+                if (
+                    attack_active
+                    and attack_type in ("label_flip", "both")
+                ):
+                    flipped_y = flip_labels(
+                        y.detach().cpu().numpy(),
+                        source_class,
+                        target_class,
+                    )
+
+                    y = torch.tensor(
+                        flipped_y,
+                        dtype=torch.long,
+                        device=self.device,
+                    )
 
                 optimizer.zero_grad()
 
@@ -164,43 +280,146 @@ class FLIDSClient(fl.client.NumPyClient):
                 loss = loss_fn(logits, y)
 
                 loss.backward()
+
+                # Optional gradient clipping.
+                # Disabled when gradient_clip_norm is None or <= 0.
+                if self.gradient_clip_norm is not None:
+                    clip_norm = float(
+                        self.gradient_clip_norm
+                    )
+
+                    if clip_norm > 0:
+                        torch.nn.utils.clip_grad_norm_(
+                            self.model.parameters(),
+                            max_norm=clip_norm,
+                        )
+
                 optimizer.step()
 
                 batch_size = y.size(0)
-                total_loss += loss.item() * batch_size
+
+                total_loss += (
+                    loss.item() * batch_size
+                )
                 total_examples += batch_size
 
-                preds = torch.argmax(logits, dim=1)
-                correct += (preds == y).sum().item()
+                predictions = torch.argmax(
+                    logits,
+                    dim=1,
+                )
+                correct += (
+                    predictions == y
+                ).sum().item()
 
-        avg_loss = total_loss / max(total_examples, 1)
-        train_accuracy = correct / max(total_examples, 1)
+        avg_loss = (
+            total_loss / max(total_examples, 1)
+        )
+        train_accuracy = (
+            correct / max(total_examples, 1)
+        )
 
+        # Parameters after honest local training.
         params = get_model_parameters(self.model)
 
-        # ── Gradient norm scaling (stealth bypass for backdoor) ───────────────
+        # ── Sign-flipping attack ──────────────────────────────────────
+        if attack_active and attack_type == "sign_flip":
+            sign_flip_scale = float(
+                self.config.get(
+                    "sign_flip_scale",
+                    1.0,
+                )
+            )
+            print(
+                f"Client {self.cid} | "
+                f"Round {server_round} | "
+                f"Applying SIGN FLIP"
+            )
+
+            malicious_parameters = []
+
+            for local_layer, global_layer in zip(
+                params,
+                global_parameters,
+            ):
+                # Honest local update:
+                # delta = local - global
+                local_update = (
+                    local_layer - global_layer
+                )
+
+                # Reverse and amplify the update.
+                malicious_update = (
+                    -sign_flip_scale * local_update
+                )
+
+                # Convert the malicious update back into parameters.
+                malicious_layer = (
+                    global_layer + malicious_update
+                )
+
+                malicious_parameters.append(
+                    malicious_layer.astype(
+                        local_layer.dtype,
+                        copy=False,
+                    )
+                )
+
+            params = malicious_parameters
+
+            logging.info(
+                f"[Client {self.cid}] Sign-flipping attack "
+                f"applied with scale={sign_flip_scale}."
+            )
+
+        # ── Backdoor norm-scaling option ──────────────────────────────
         if attack_active and attack_type in ("backdoor", "both"):
-            scale_to_norm = self.config.get("scale_to_benign_norm", False)
-            target_norm   = float(self.config.get("benign_norm_target", 1.0))
+            scale_to_norm = bool(
+                self.config.get(
+                    "scale_to_benign_norm",
+                    False,
+                )
+            )
+            target_norm = float(
+                self.config.get(
+                    "benign_norm_target",
+                    1.0,
+                )
+            )
+
             if scale_to_norm:
-                params = scale_gradient_to_norm(params, target_norm)
+                params = scale_gradient_to_norm(
+                    params,
+                    target_norm,
+                )
 
         metrics = {
-            "train_loss":     float(avg_loss),
+            "train_loss": float(avg_loss),
             "train_accuracy": float(train_accuracy),
-            "cid":            float(self.cid) if self.cid.isdigit() else -1.0,
-            "is_poisoned":    float(self.is_poisoned),
-            "attack_active":  float(attack_active),
+            "cid": (
+                float(self.cid)
+                if self.cid.isdigit()
+                else -1.0
+            ),
+            "is_poisoned": float(self.is_poisoned),
+            "attack_active": float(attack_active),
         }
 
-        return params, total_examples, metrics
+        return (
+            params,
+            total_examples,
+            metrics,
+        )
 
     def evaluate(
         self,
         parameters: List[np.ndarray],
         config,
     ) -> Tuple[float, int, Dict[str, float]]:
-        set_model_parameters(self.model, parameters)
+
+        set_model_parameters(
+            self.model,
+            parameters,
+        )
 
         self.model.eval()
         loss_fn = nn.CrossEntropyLoss()
@@ -218,18 +437,38 @@ class FLIDSClient(fl.client.NumPyClient):
                 loss = loss_fn(logits, y)
 
                 batch_size = y.size(0)
-                total_loss += loss.item() * batch_size
+
+                total_loss += (
+                    loss.item() * batch_size
+                )
                 total_examples += batch_size
 
-                preds = torch.argmax(logits, dim=1)
-                correct += (preds == y).sum().item()
+                predictions = torch.argmax(
+                    logits,
+                    dim=1,
+                )
+                correct += (
+                    predictions == y
+                ).sum().item()
 
-        avg_loss = total_loss / max(total_examples, 1)
-        accuracy = correct / max(total_examples, 1)
+        avg_loss = (
+            total_loss / max(total_examples, 1)
+        )
+        accuracy = (
+            correct / max(total_examples, 1)
+        )
 
         metrics = {
             "val_accuracy": float(accuracy),
-            "cid": float(self.cid) if self.cid.isdigit() else -1.0,
+            "cid": (
+                float(self.cid)
+                if self.cid.isdigit()
+                else -1.0
+            ),
         }
 
-        return float(avg_loss), total_examples, metrics
+        return (
+            float(avg_loss),
+            total_examples,
+            metrics,
+        )

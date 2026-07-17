@@ -9,6 +9,14 @@ label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,5,2,0.0789205253,0,0.022059
 label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,5,3,0.0495378739,2,0.0199989984,0.0714285714
 
 
+gradient_clipping_robust,AL-CMT,50,20,None,0.0,1,0.4923543337,3,0.0289298320,0.0714285714
+gradient_clipping_robust,AL-CMT,50,20,None,0.0,2,0.0752454647,0,0.0211285104,0.0714285714
+gradient_clipping_robust,AL-CMT,50,20,None,0.0,3,0.0506931816,3,0.0165358624,0.0714285714
+
+gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,1,0.3068984867,2,0.0287541767,0.0708660343
+gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,2,0.0727567071,1,0.0223409142,0.0714285714
+gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,3,0.0592619632,1,0.0221301734,0.0714285714
+
 
 layernorm_baseline_robust,AL-CMT,50,20,None,0.0,1,0.1692542878,2,0.0260305050,0.0689188129
 layernorm_baseline_robust,AL-CMT,50,20,None,0.0,2,0.0491221475,1,0.0210991958,0.0714285714
@@ -17,3 +25,12 @@ layernorm_baseline_robust,AL-CMT,50,20,None,0.0,3,0.0352967822,2,0.0166031272,0.
 layernorm_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,1,0.1341800984,1,0.0281496006,0.0608569698
 layernorm_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,2,0.0681031501,2,0.0163760004,0.0714285714
 layernorm_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,3,0.0294158899,3,0.0144324744,0.0714285714
+
+
+layernorm_gradient_clipping_robust,AL-CMT,50,20,None,0.0,1,0.1124488452,0,0.0330648980,0.0658237117
+layernorm_gradient_clipping_robust,AL-CMT,50,20,None,0.0,2,0.0353578865,0,0.0307930369,0.0704253207
+layernorm_gradient_clipping_robust,AL-CMT,50,20,None,0.0,3,0.0219926126,2,0.0215807436,0.0714285714
+
+layernorm_gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,1,0.0940498781,1,0.0288779494,0.0668677655
+layernorm_gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,2,0.0335739669,5,0.0189124771,0.0714285714
+layernorm_gradient_clipping_label_flip_10pct_robust,AL-CMT,50,20,label_flip,0.10,3,0.0222668041,3,0.0148765856,0.0714285714

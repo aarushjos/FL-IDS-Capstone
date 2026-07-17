@@ -1,0 +1,66 @@
+[2026-06-20 08:30:43,142] 117 root - INFO - [Aggregator] AL-CMT initialized — cap_t=0.0714, temperature=2.0, ema_momentum=0.9
+[2026-06-20 08:30:44,688] 268 flwr - WARNING - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-06-20 08:30:44,689] 241 flwr - INFO - Starting Flower simulation, config: num_rounds=3, no round_timeout
+[2026-06-20 08:30:53,256] 264 flwr - INFO - Flower VCE: Ray initialized with resources: {'object_store_memory': 2556718694.0, 'GPU': 1.0, 'memory': 5965676954.0, 'accelerator_type:G': 1.0, 'node:__internal_head__': 1.0, 'node:127.0.0.1': 1.0, 'CPU': 6.0}
+[2026-06-20 08:30:53,256] 270 flwr - INFO - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-06-20 08:30:53,256] 293 flwr - INFO - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-06-20 08:30:53,275] 339 flwr - INFO - Flower VCE: Creating VirtualClientEngineActorPool with 6 actors
+[2026-06-20 08:30:53,275] 91 flwr - INFO - [INIT]
+[2026-06-20 08:30:53,277] 272 flwr - INFO - Using initial global parameters provided by strategy
+[2026-06-20 08:30:53,277] 93 flwr - INFO - Starting evaluation of initial global parameters
+[2026-06-20 08:30:53,277] 105 flwr - INFO - Evaluation returned no results (`None`)
+[2026-06-20 08:30:53,278] 111 flwr - INFO - 
+[2026-06-20 08:30:53,278] 112 flwr - INFO - [ROUND 1]
+[2026-06-20 08:30:53,280] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:31:22,365] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-06-20 08:31:22,379] 188 root - INFO - [Aggregator] Round 1: 1/20 clients flagged by MAD.
+[2026-06-20 08:31:22,379] 201 root - INFO - [Aggregator] Round 1: trust_weights min=0.0289 max=0.0669 zero_count=0
+[2026-06-20 08:31:22,385] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:31:23,285] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-06-20 08:31:23,285] 111 flwr - INFO - 
+[2026-06-20 08:31:23,285] 112 flwr - INFO - [ROUND 2]
+[2026-06-20 08:31:23,285] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:31:58,092] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-06-20 08:31:58,251] 188 root - INFO - [Aggregator] Round 2: 5/20 clients flagged by MAD.
+[2026-06-20 08:31:58,251] 201 root - INFO - [Aggregator] Round 2: trust_weights min=0.0189 max=0.0714 zero_count=0
+[2026-06-20 08:31:58,256] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:31:59,114] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-06-20 08:31:59,114] 111 flwr - INFO - 
+[2026-06-20 08:31:59,114] 112 flwr - INFO - [ROUND 3]
+[2026-06-20 08:31:59,114] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:32:31,966] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-06-20 08:32:31,978] 188 root - INFO - [Aggregator] Round 3: 3/20 clients flagged by MAD.
+[2026-06-20 08:32:31,979] 201 root - INFO - [Aggregator] Round 3: trust_weights min=0.0149 max=0.0714 zero_count=0
+[2026-06-20 08:32:31,984] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-06-20 08:32:32,877] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-06-20 08:32:32,878] 491 flwr - INFO - 
+[2026-06-20 08:32:32,878] 492 flwr - INFO - [SUMMARY]
+[2026-06-20 08:32:32,878] 493 flwr - INFO - Run finished 3 round(s) in 99.60s
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 	History (loss, distributed):
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 		round 1: 0.09404987808871264
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 		round 2: 0.033573966905877634
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 		round 3: 0.022266804077868588
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 	History (metrics, distributed, fit):
+[2026-06-20 08:32:32,879] 495 flwr - INFO - 	{'clients': [(1, 20), (2, 20), (3, 20)],
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	 'flagged': [(1, 1), (2, 5), (3, 3)],
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	 'max_trust': [(1, 0.06686776549689362),
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	               (2, 0.07142857142857142),
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	               (3, 0.07142857142857142)],
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	 'min_trust': [(1, 0.028877949382844468),
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	               (2, 0.01891247705444686),
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	               (3, 0.014876585578636156)],
+[2026-06-20 08:32:32,880] 495 flwr - INFO - 	 'round': [(1, 1), (2, 2), (3, 3)]}
+[2026-06-20 08:32:32,881] 495 flwr - INFO - 	History (metrics, distributed, evaluate):
+[2026-06-20 08:32:32,881] 495 flwr - INFO - 	{'round': [(1, 1), (2, 2), (3, 3)]}
+[2026-06-20 08:32:32,881] 496 flwr - INFO - 

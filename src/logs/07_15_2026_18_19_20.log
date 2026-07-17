@@ -1,0 +1,52 @@
+[2026-07-15 18:19:22,965] 268 flwr - WARNING - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-15 18:19:22,967] 241 flwr - INFO - Starting Flower simulation, config: num_rounds=3, no round_timeout
+[2026-07-15 18:19:29,539] 264 flwr - INFO - Flower VCE: Ray initialized with resources: {'object_store_memory': 2208916684.0, 'GPU': 1.0, 'memory': 5154138932.0, 'accelerator_type:G': 1.0, 'node:__internal_head__': 1.0, 'node:127.0.0.1': 1.0, 'CPU': 6.0}
+[2026-07-15 18:19:29,545] 270 flwr - INFO - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-07-15 18:19:29,545] 293 flwr - INFO - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-07-15 18:19:29,562] 339 flwr - INFO - Flower VCE: Creating VirtualClientEngineActorPool with 6 actors
+[2026-07-15 18:19:29,564] 91 flwr - INFO - [INIT]
+[2026-07-15 18:19:29,564] 272 flwr - INFO - Using initial global parameters provided by strategy
+[2026-07-15 18:19:29,564] 93 flwr - INFO - Starting evaluation of initial global parameters
+[2026-07-15 18:19:29,564] 105 flwr - INFO - Evaluation returned no results (`None`)
+[2026-07-15 18:19:29,564] 111 flwr - INFO - 
+[2026-07-15 18:19:29,566] 112 flwr - INFO - [ROUND 1]
+[2026-07-15 18:19:29,567] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:20:10,902] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-15 18:20:10,925] 251 flwr - WARNING - No fit_metrics_aggregation_fn provided
+[2026-07-15 18:20:10,925] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:20:11,741] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-15 18:20:11,741] 111 flwr - INFO - 
+[2026-07-15 18:20:11,741] 112 flwr - INFO - [ROUND 2]
+[2026-07-15 18:20:11,741] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:20:45,861] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-15 18:20:45,885] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:20:46,993] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-15 18:20:46,993] 111 flwr - INFO - 
+[2026-07-15 18:20:46,993] 112 flwr - INFO - [ROUND 3]
+[2026-07-15 18:20:46,993] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:21:04,229] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-15 18:21:04,252] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-15 18:21:05,041] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-15 18:21:05,041] 491 flwr - INFO - 
+[2026-07-15 18:21:05,042] 492 flwr - INFO - [SUMMARY]
+[2026-07-15 18:21:05,042] 493 flwr - INFO - Run finished 3 round(s) in 95.48s
+[2026-07-15 18:21:05,042] 495 flwr - INFO - 	History (loss, distributed):
+[2026-07-15 18:21:05,042] 495 flwr - INFO - 		round 1: 0.5131326112520236
+[2026-07-15 18:21:05,042] 495 flwr - INFO - 		round 2: 0.06737752003510647
+[2026-07-15 18:21:05,042] 495 flwr - INFO - 		round 3: 0.07525242733119551
+[2026-07-15 18:21:05,043] 495 flwr - INFO - 	History (metrics, distributed, evaluate):
+[2026-07-15 18:21:05,043] 495 flwr - INFO - 	{'val_accuracy': [(1, 0.9662663608150047),
+[2026-07-15 18:21:05,043] 495 flwr - INFO - 	                  (2, 0.9842350932635899),
+[2026-07-15 18:21:05,043] 495 flwr - INFO - 	                  (3, 0.9798376845604772)]}
+[2026-07-15 18:21:05,043] 496 flwr - INFO - 
