@@ -1,14 +1,14 @@
 # FL-IDS Capstone — Master Context File
 
 > **Purpose:** Give a new AI (or future session) full project context in one file.
-> Last updated: 2026-06-04 — All components implemented. Phase 1 FL experiment (30 rounds, 0% attackers) completed successfully. Final global model: Macro F1=0.5435, Acc=99.28%.
+> Last updated: 2026-07-17 — Dataset migrated from CIC-IDS2017 → CSE-CIC-IDS2018 (Kaggle: solarmainframe/ids-intrusion-csv) for fair comparison with FL-IDS research papers. input_dim=44, num_classes=15.
 
 ---
 
 ## 1. Project Summary
 
 **FL-IDS** is a Federated Learning–based Intrusion Detection System for IoT edge gateways.
-Clients train locally on CIC-IDS2017 network traffic data and send only model weights to a central server — raw data never leaves the device.
+Clients train locally on **CSE-CIC-IDS2018** network traffic data and send only model weights to a central server — raw data never leaves the device.
 The server defends against Byzantine (label-flipping / data-poisoning) attacks using a **modular 3-part math pipeline** before aggregating the global model.
 
 **Key research design decision:** The anomaly scoring component (Step 2) is a **swappable module**. Three implementations will be built and compared:
@@ -21,7 +21,7 @@ Steps 3 and 4 (EMA Trust Scoring + Capped Simplex) are shared by Variants A and 
 **Stack:**
 - ML: `PyTorch` (MLP classifier)
 - FL orchestration: `Flower (flwr)`
-- Dataset: CIC-IDS2017 (~78 raw features → 57 after preprocessing, tabular, multi-class 27 classes)
+- Dataset: **CSE-CIC-IDS2018** (~80 raw features → 44 after preprocessing, tabular, **15 classes**: Benign + 14 attacks)
 - Data distribution: Non-IID via Dirichlet(α=0.5) to simulate real IoT heterogeneity
 - Python package structure under `src/`
 
@@ -222,7 +222,7 @@ class FLIDSClient(fl.client.NumPyClient):
         self, cid, train_loader, val_loader, model,
         config=None,
         X_train_raw=None,   # required for backdoor injection
-        y_train_raw=None,   # required for backdoor injection
+        y_train_raw=None,   # required for backdoor + class weighting
     )
     def get_parameters(self, config)           -> List[np.ndarray]
     def fit(self, parameters, config)          -> (params, num_examples, metrics)
@@ -238,9 +238,10 @@ class FLIDSClient(fl.client.NumPyClient):
 | `label_flip` | Per-batch: `flip_labels(y.numpy(), source_class, target_class)` → re-tensor | ❌ No |
 | `backdoor` | Pre-loop: `inject_backdoor_trigger()` → rebuild DataLoader | ✅ Yes (`X_train_raw`, `y_train_raw`) |
 | `both` | Both mechanisms applied | ✅ Yes |
+| `sign_flip` | Post-training: reverse and scale update delta via `sign_flip_scale` | ❌ No |
 | Gradient scaling | Post-loop: `scale_gradient_to_norm()` if `scale_to_benign_norm=True` | ❌ No |
 
-**Config keys read by client:** `device`, `local_epochs`, `lr`, `weight_decay`, `is_poisoned`, `attack_type`, `attack_start_round`, `source_class`, `target_class`, `trigger_feature_idx`, `trigger_values`, `inject_ratio`, `scale_to_benign_norm`, `benign_norm_target`
+**Config keys read by client:** `device`, `local_epochs`, `lr`, `weight_decay`, `is_poisoned`, `attack_type`, `attack_start_round`, `source_class`, `target_class`, `trigger_feature_idx`, `trigger_values`, `inject_ratio`, `scale_to_benign_norm`, `benign_norm_target`, `sign_flip_scale`, `gradient_clip_norm`, `weight_cap`
 
 **Server config key read from Flower `config` arg in fit():** `server_round`
 
@@ -497,10 +498,11 @@ federated:    num_clients (50), clients_per_round (20), num_rounds (30), local_e
 data:         partition_mode ("non_iid"), alpha_dirichlet (0.5), val_split_ratio (0.2),
               random_seed (42), num_workers (4)
 attack:       attacker_ratio (0.0→0.10/0.30/0.50), attack_start_round (11),
-              attack_type ("label_flip"|"backdoor"|"both"),
+              attack_type ("label_flip"|"backdoor"|"both"|"sign_flip"),
               source_class (3=DDoS), target_class (0=BENIGN),
               trigger_feature_idx ([0,5]), trigger_values ([999999,1]),
-              inject_ratio (0.1), scale_to_benign_norm (true)
+              inject_ratio (0.1), scale_to_benign_norm (true),
+              sign_flip_scale (1.0), gradient_clip_norm (null)
 defense:      mad_threshold (-3.0), analyze_layers ("final"),
               max_byzantine_fraction (0.3), sparsity_s (null),
               ema_momentum (0.9), temperature (2.0), initial_reputation (0.0),

@@ -6,7 +6,16 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from src.logging.logger import logging
 from src.exception.exception import FLIDSException
 
-DROP_COLS = ["Src IP dec", "Dst IP dec", "Timestamp", "Attempted Category"]
+DROP_COLS = [
+    # IDS2017 metadata columns
+    "Src IP dec", "Dst IP dec", "Attempted Category",
+    # IDS2018 metadata columns (non-feature identifiers)
+    # Note: column names are already stripped of whitespace by the loader
+    "Flow ID", "Src IP", "Dst IP",
+    # Timestamp is present in both datasets — not a network feature
+    "Timestamp",
+]
+
 
 
 def drop_unusable(df: pd.DataFrame) -> pd.DataFrame:
@@ -15,7 +24,11 @@ def drop_unusable(df: pd.DataFrame) -> pd.DataFrame:
     num_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     if "Label" not in df.columns:
         raise ValueError("Label column not found in dataset")
+    # IDS2018 has duplicate header rows embedded mid-file where Label == 'Label'
+    # — filter them out so they don't create a spurious 'Label' class.
+    df = df[df["Label"] != "Label"]
     return df[num_cols + ["Label"]]                              # keep numeric + label only
+
 
 
 def impute(df: pd.DataFrame) -> pd.DataFrame:

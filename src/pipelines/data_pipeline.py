@@ -7,20 +7,21 @@ from sklearn.preprocessing import StandardScaler
 from src.logging.logger import logging
 from src.exception.exception import FLIDSException
 from src.configs.paths import RAW_DIR, PREPROCESSED_DIR, ensure_dirs
-from src.components.data.data_loader import load_cicids2017
+from src.components.data.data_loader import load_cicids2018
 from src.components.data.data_preprocessor import preprocess
 from src.components.data.data_partitioner import run_partitioning
 
 
 def run_data_pipeline():
     try:
-        logging.info("Data pipeline started")
+        logging.info("Data pipeline started (CSE-CIC-IDS2018)")
         ensure_dirs()
 
-        df_raw = load_cicids2017()
+        df_raw = load_cicids2018()
 
-        raw_path = RAW_DIR / "cicids2017_raw.parquet"
+        raw_path = RAW_DIR / "cicids2018_raw.parquet"
         df_raw.to_parquet(raw_path, index=False)
+        logging.info(f"Raw parquet saved → {raw_path}")
 
         X, y, feature_cols, le, scaler = preprocess(df_raw)
 
@@ -49,4 +50,4 @@ def run_data_pipeline():
 
 
 if __name__ == "__main__":
-    run_data_pipeline()
+    run_data_pipeline()

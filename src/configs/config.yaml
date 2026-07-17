@@ -6,10 +6,10 @@
 
 # ─── Model Architecture (PyTorch MLP) ────────────────────────────
 model:
-  input_dim: 57               # Features after preprocessing (variance + correlation filter)
-  hidden_dims: [256, 128, 64] # Wider funnel: context.md spec, supports 27-class head
-  num_classes: 27             # CIC-IDS2017 fine-grained multi-class (BENIGN + 26 attacks)
-  dropout_rate: 0.2           # Matches centralized baseline (notebook 06)
+  input_dim: 44               # Features after preprocessing on CSE-CIC-IDS2018 (verified)
+  hidden_dims: [256, 128, 64] # Architecture unchanged
+  num_classes: 15             # CSE-CIC-IDS2018: Benign + 14 attack types
+  dropout_rate: 0.2           # Matches centralized baseline
 
 # ─── Federated Learning ──────────────────────────────────────────
 federated:
@@ -33,10 +33,11 @@ data:
 attack:
   attacker_ratio: 0.0         # Start at 0.0 for Phase 1; set to 0.10 / 0.30 / 0.50 for Phase 2
   attack_start_round: 11      # Byzantine injection begins after clean Phase 1 rounds
-  attack_type: "label_flip"   # "label_flip" | "backdoor" | "both"
-  # Label-flip settings (Targeted Semantic Attack: DDoS → Benign)
-  source_class: 3             # Class index to flip FROM (DDoS = 3 after LabelEncoder)
-  target_class: 0             # Class index to flip TO  (BENIGN = 0 after LabelEncoder)
+  attack_type: "label_flip"   # "label_flip" | "backdoor" | "both" | "sign_flip"
+  # Label-flip settings (Targeted Semantic Attack: DDOS attack-HOIC → Benign)
+  # IDS2018 LabelEncoder: 0=Benign, 4=DDOS attack-HOIC, 5=DDOS attack-LOIC-UDP
+  source_class: 4             # Class index to flip FROM (DDOS attack-HOIC = 4 in IDS2018)
+  target_class: 0             # Class index to flip TO  (Benign = 0 in IDS2018)
   # Backdoor trigger settings
   trigger_feature_idx: [0, 5] # Feature indices used as trigger pattern
   trigger_values: [999999, 1] # Exact values injected (Flow_Duration, ACK_Flag_Count)

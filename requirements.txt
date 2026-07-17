@@ -15,6 +15,7 @@ scipy>=1.12.0                   # pdist/squareform cosine similarity, truncated 
 # ─── Data Processing ─────────────────────────────────
 pandas>=2.2.0                   # Loading & preprocessing CIC-IDS2017 CSVs
 scikit-learn>=1.4.0             # StandardScaler, F1-score, confusion matrix, SMOTE
+kagglehub>=0.3.0                # Auto-download Kaggle datasets (CSE-CIC-IDS2018)
 
 # ─── Experiment & Config ─────────────────────────────
 pyyaml>=6.0.1                   # Parsing config.yaml
