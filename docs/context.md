@@ -1,7 +1,7 @@
 # FL-IDS Capstone — Master Context File
 
 > **Purpose:** Give a new AI (or future session) full project context in one file.
-> Last updated: 2026-07-17 — Dataset migrated from CIC-IDS2017 → CSE-CIC-IDS2018 (Kaggle: solarmainframe/ids-intrusion-csv) for fair comparison with FL-IDS research papers. input_dim=44, num_classes=15.
+> Last updated: 2026-07-17 — Full migration to CSE-CIC-IDS2018 complete. EDA confirmed: input_dim=44, num_classes=15, source_class=4 (DDOS attack-HOIC), target_class=0 (Benign). Centralized baseline training in progress (epoch 3/50, Macro F1≈0.72 at epoch 2). All 50 Non-IID client shards regenerated. Data pipeline, preprocessor, and all other pipelines updated and verified.
 
 ---
 
@@ -48,12 +48,14 @@ FL IDS/
 │   ├── 04_fl_phase1_analysis.ipynb
 │   ├── 05_attack_analysis.ipynb
 │   ├── 06_strategy_comparison.ipynb
-│   └── 07_aggregator_internals.ipynb
+│   ├── 07_aggregator_internals.ipynb
+│   └── 08_ids2018_eda.ipynb        ← IDS2018 EDA (class dist, feature funnel, partition heatmap)
 ├── artifacts/
-│   ├── raw/                        # cicids2017_raw.parquet (generated)
+│   ├── raw/                        # cicids2018_raw.parquet (1.8 GB, IDS2018)
 │   ├── preprocessed/               # label_encoder.pkl, feature_cols.pkl, scaler.pkl, test_set.npz
-│   ├── data/                       # client_0000.npz … client_NNNN.npz (train+val split inside each)
-│   ├── models/                     # baseline_mlp.pth (centralized checkpoint — Macro F1=0.7463)
+│   ├── data/                       # client_0000.npz … client_0049.npz (50 shards, Non-IID Dirichlet α=0.5)
+│   ├── models/                     # baseline_mlp.pth (IDS2018 centralized checkpoint — training in progress)
+│   ├── plots/                      # EDA plots: ids2018_class_dist.png, ids2018_corr_heatmap.png, ids2018_noniid_partition.png
 │   ├── results/
 │   └── plots/
 ├── src/
@@ -81,11 +83,13 @@ FL IDS/
 │       │   ├── client.py                     ✅ IMPLEMENTED (FLIDSClient + attack wiring)
 │       │   └── attacker.py                   ✅ IMPLEMENTED (flip_labels, inject_backdoor_trigger, scale_gradient_to_norm)
 │       ├── server/
-│       │   ├── aggregator.py                 ✅ IMPLEMENTED (Variant A — AL-CMT)
-│       │   ├── baselines.py                  ✅ IMPLEMENTED (FedAvg, TrimmedMean, Krum)
-│       │   ├── server.py                     ✅ IMPLEMENTED
-│       │   ├── ae_scorer.py                  ✅ IMPLEMENTED (Variant B — AE anomaly scorer)
-│       │   └── ssfg_aggregator.py            ✅ IMPLEMENTED (Variant C — SVD spectral filter)
+│       │   ├── aggregator.py                 ✅ Variant A — AL-CMT (Cosine+MAD+EMA+Simplex)
+│       │   ├── baselines.py                  ✅ FedAvg, TrimmedMean, Krum
+│       │   ├── server.py                     ✅ get_initial_parameters, server_evaluate_fn
+│       │   ├── ae_scorer.py                  ✅ Variant B — AE anomaly scorer
+│       │   ├── ssfg_aggregator.py            ✅ Variant C — SVD spectral filter on all clients
+│       │   ├── triage_aggregator.py          ✅ NOVELTY — MSFT (SVD on suspicious subset only)
+│       │   └── ablation_aggregators.py       ✅ FullModelCosineAggregator, FinalLayerNoSimplexAggregator
 │       └── evaluation/
 │           └── evaluator.py                  ✅ IMPLEMENTED
 └── tests/
@@ -99,6 +103,8 @@ FL IDS/
 ---
 
 ## 3. What Is FULLY Implemented
+
+> **Novel Novelty Added (2026-07-17):** `triage_aggregator.py` (MSFT core) + `ablation_aggregators.py` (2 ablations). `training_pipeline.py` extended with 5 new strategy names. `run_all_experiments.py` updated with full matrix.
 
 ### 3.1 `src/configs/paths.py`
 ```python
@@ -115,20 +121,21 @@ def ensure_dirs() -> None   # creates all artifact subdirectories
 Orchestrates the full data flow end-to-end:
 
 ```
-load_cicids2017()
-  → preprocess()         (Steps 1–5 + StandardScaler — returns X, y, feature_cols, le, scaler)
+load_cicids2018()          ← auto-downloads via kagglehub if not cached
+  → preprocess()           (Steps 1–6 + StandardScaler — returns X, y, feature_cols, le, scaler)
   → saves label_encoder.pkl, feature_cols.pkl, scaler.pkl
-  → train_test_split()   (80/20 stratified → saves test_set.npz)
-  → run_partitioning()   (IID or Non-IID → saves client_NNNN.npz shards)
+  → train_test_split()     (80/20 stratified → saves test_set.npz with keys X_test/y_test)
+  → run_partitioning()     (Non-IID Dirichlet α=0.5 → saves client_0000.npz … client_0049.npz)
 ```
 
-Returns: `feature_cols, le, scaler, X_test, y_test`
+**Verified output (2026-07-17):** 16,232,943 rows → 44 features → 15 classes → 50 client shards
 
 ---
 
 ### 3.3 Data Loader — `src/components/data/data_loader.py`
 
-- Loads CIC-IDS2017 from HuggingFace (`bvk/CICIDS-2017`) as a pandas DataFrame.
+- `load_cicids2018()` — auto-downloads CSE-CIC-IDS2018 via `kagglehub` (`solarmainframe/ids-intrusion-csv`), reads all 10 CSV files, handles `"Infinity"` strings, duplicate header rows, dtype unification via `pd.to_numeric`. Returns a clean 16M-row DataFrame.
+- `load_cicids2017()` — legacy function kept for reference, not used in current pipeline.
 
 ---
 
@@ -139,12 +146,12 @@ Returns: `feature_cols, le, scaler, X_test, y_test`
 
 | Step | Function | What it does |
 |------|----------|--------------|
-| 1 | `drop_unusable()` | Drops ID cols, all-NaN cols, keeps only numeric + Label |
+| 1 | `drop_unusable()` | Drops `Flow ID`, `Src IP`, `Dst IP`, `Timestamp`; removes all-NaN cols; **filters rows where Label=="Label"** (IDS2018 stray header rows); keeps only numeric + Label |
 | 2 | `impute()` | Inf/-Inf → NaN, NaN → column median |
-| 3 | `variance_filter()` | Removes zero-variance (constant) features |
-| 4 | `correlation_filter()` | Removes Pearson `|r| > 0.95` (reduces to ~57 features) |
-| 5 | `encode_labels()` | `LabelEncoder`: BENIGN=0, DDoS=1, … 27 classes total |
-| 6 | `StandardScaler` | Applied inside `preprocess()`, fit on all data passed in |
+| 3 | `variance_filter()` | Removes zero-variance features (0 removed on IDS2018) |
+| 4 | `correlation_filter()` | Removes Pearson `|r| > 0.95` → **44 features** remain |
+| 5 | `encode_labels()` | `LabelEncoder`: Benign=0, Bot=1, … 15 classes total |
+| 6 | `StandardScaler` | Fit on train data inside `preprocess()`, transform applied to all splits |
 
 > **Note:** `data_pipeline.py` calls `preprocess()` on the full raw DataFrame, then splits into train/test. Scaler is fit on the training portion only via `scaler.transform()` — not re-fit.
 
@@ -189,8 +196,8 @@ def get_model_parameters(model)          -> List[np.ndarray]   # state_dict → 
 def set_model_parameters(model, params)  -> None               # NumPy list → state_dict (Flower)
 ```
 
-> ✅ **TRAINED** — Centralized baseline: `input_dim=57, hidden_dims=[256,128,64], num_classes=27`.
-> Test Macro F1 = **0.7463**, Accuracy = 0.9880, 58,651 params.
+> ✅ **TRAINED** — Centralized baseline (IDS2018): `input_dim=44, hidden_dims=[256,128,64], num_classes=15`.
+> Test Macro F1 = **0.7570**, Accuracy = 0.77, 54,543 params.
 > Checkpoint: `artifacts/models/baseline_mlp.pth`
 
 ---
@@ -355,13 +362,36 @@ class AEScorer:
 
 ```python
 class SSFGAggregator(fl.server.strategy.Strategy):
-    # Extends Variant A by applying SVD spectral filtering before cosine similarity
-    # _spectral_filter(): SVD → keep top 90% singular values → reconstruct
-    # Suppresses low-rank adversarial perturbations that bypass MAD
-    # Reuses all Variant A helpers (extract_final_layer, cosine sim, MAD, softmax, simplex)
+    # Applies SVD spectral filtering on ALL clients before cosine scoring.
+    # _spectral_filter(): SVD → keep top svd_keep_ratio singular values → reconstruct
 ```
 
 ---
+
+### 3.17 Triage Aggregator — `src/components/server/triage_aggregator.py` (NOVELTY — MSFT)
+
+```python
+class TriageAggregator(fl.server.strategy.Strategy):
+    # MSFT: Multi-Stage Final-Layer Triage
+    # Stage 1: Cosine + MAD on ALL clients
+    # Stage 2: SVD on suspicious-ONLY subset (MAD < triage_soft_threshold)
+    # Stage 3: Merge scores → EMA reputation → capped simplex weights
+    # Stage 4: Weighted aggregation across all model layers
+    # Key difference from SSFG: SVD is applied only to suspicious clients, not everyone
+```
+
+Config keys: `defense.triage_soft_threshold` (-2.0), `defense.svd_keep_ratio` (0.9)
+
+---
+
+### 3.18 Ablation Aggregators — `src/components/server/ablation_aggregators.py`
+
+```python
+class FullModelCosineAggregator:      # Cosine on full flattened model — expected to fail on Non-IID
+class FinalLayerNoSimplexAggregator:  # Final layer + EMA but plain softmax instead of capped simplex
+```
+
+Both share `_BaseAblation` class. Used to prove each component of MSFT is necessary.
 
 ### 3.17 Evaluator — `src/components/evaluation/evaluator.py`
 
@@ -414,6 +444,11 @@ def run_evaluation() -> None
 | Old partition `.npz` files have keys `X`, `y` (not `X_train`/`X_val`) | `load_partition()` checks key names and splits inline if old format |
 | `test_set.npz` saved with `X`/`y` keys, `server.py` expected `X_test`/`y_test` | `server_evaluate_fn` now tries both key names |
 | `project_capped_simplex` original rho-search was incorrect | Replaced with binary search on Lagrange multiplier `gamma` |
+| IDS2018 CSVs have `"Infinity"` strings in numeric columns | Added `na_values=["Infinity","-Infinity","inf","-inf"]` to `pd.read_csv` in loader |
+| IDS2018 CSVs have duplicate header rows mid-file | `on_bad_lines="skip"` in loader + `df[df["Label"] != "Label"]` in preprocessor |
+| `pd.concat` on 10 CSVs with mixed dtypes caused `ArrayMemoryError` | Force `pd.to_numeric(errors="coerce")` on all feature columns before concat |
+| `centralized_training_pipeline.py` used old `"X"`/`"y"` npz keys | Updated to `"X_test"`/`"y_test"` + replaced stale IDS2017 parquet load with client shard aggregation |
+| `centralized_training_pipeline.py` printed `★` — UnicodeEncodeError on Windows cp1252 | Replaced with `*` |
 
 ---
 
@@ -483,36 +518,42 @@ def run_evaluation() -> None
 11. ✅ ae_scorer.py — Variant B AE anomaly scorer
 12. ✅ ssfg_aggregator.py — Variant C SVD spectral filter
 
-**→ NEXT STEPS (The Big Run):**
-- Run `python run_all_experiments.py` to automatically execute the full Phase 2 experiment matrix (RobustFL sweep + all baselines at 30% attackers). This will take ~7 hours on CPU.
-- After the script finishes, open the Jupyter notebooks in `notebooks/` (specifically 05 and 06) and run them to generate the final plots and tables for the capstone report.
+**→ CURRENT STATUS (2026-07-17):**
+- ✅ Dataset migrated to CSE-CIC-IDS2018 (kagglehub, 16M rows, 44 features, 15 classes)
+- ✅ All 50 Non-IID client shards regenerated with Dirichlet(α=0.5)
+- ✅ config.yaml updated (input_dim=44, num_classes=15, source_class=4, target_class=0)
+- ✅ EDA notebook (08) complete — plots saved to artifacts/plots/
+- ✅ MSFT novelty implemented — triage_aggregator.py + ablation_aggregators.py
+- ✅ training_pipeline.py extended with 5 strategy names (triage, full_model_cosine, final_no_simplex)
+- ✅ run_all_experiments.py updated with full matrix (sweep × 3 ratios + baselines at 30%)
+- ✅ Centralized baseline training completed (Macro F1 = 0.7570)
+- ⏳ NEXT: 3-round FL smoke test with triage strategy
+- ⏳ Final step: run full experiment matrix via run_all_experiments.py
 
 ---
 
 ## 8. Config Keys Reference (`config.yaml`)
 
 ```yaml
-model:        input_dim (57), hidden_dims ([256,128,64]), num_classes (27), dropout_rate (0.2)
-federated:    num_clients (50), clients_per_round (20), num_rounds (30), local_epochs (3),
+model:        input_dim (44), hidden_dims ([256,128,64]), num_classes (15), dropout_rate (0.2)
+federated:    num_clients (50), clients_per_round (20), num_rounds (50), local_epochs (5),
               learning_rate (0.001), batch_size (256), optimizer ("adam")
 data:         partition_mode ("non_iid"), alpha_dirichlet (0.5), val_split_ratio (0.2),
               random_seed (42), num_workers (4)
 attack:       attacker_ratio (0.0→0.10/0.30/0.50), attack_start_round (11),
               attack_type ("label_flip"|"backdoor"|"both"|"sign_flip"),
-              source_class (3=DDoS), target_class (0=BENIGN),
+              source_class (4=DDOS attack-HOIC), target_class (0=Benign),
               trigger_feature_idx ([0,5]), trigger_values ([999999,1]),
-              inject_ratio (0.1), scale_to_benign_norm (true),
-              sign_flip_scale (1.0), gradient_clip_norm (null)
+              inject_ratio (0.1), scale_to_benign_norm (true)
 defense:      mad_threshold (-3.0), analyze_layers ("final"),
-              max_byzantine_fraction (0.3), sparsity_s (null),
-              ema_momentum (0.9), temperature (2.0), initial_reputation (0.0),
-              ae_hidden_factor (4), ae_train_epochs (5)
+              max_byzantine_fraction (0.3), ema_momentum (0.9), temperature (2.0),
+              initial_reputation (0.0), ae_hidden_factor (4), ae_train_epochs (5),
+              triage_soft_threshold (-2.0), svd_keep_ratio (0.9)   ← MSFT keys
 evaluation:   metrics, primary_metric ("macro_f1"), save_confusion_matrix, plot_every_n_rounds
-experiment:   phase1_clean_rounds (10), phase2_attack_rounds (20),
+experiment:   phase1_clean_rounds (10), phase2_attack_rounds (40),
               attacker_ratios ([0.10,0.30,0.50]), baseline_strategies
-centralized:  hidden_dims, dropout_rate, epochs (50), batch_size (256),
-              learning_rate (0.001), weight_decay (0.00001), weight_cap (10.0),
-              scheduler_patience (5), scheduler_factor (0.5), save_path
+centralized:  epochs (50), batch_size (256), learning_rate (0.001),
+              weight_decay (0.00001), weight_cap (10.0), scheduler_patience (5)
 ```
 
 ---
@@ -524,7 +565,7 @@ centralized:  hidden_dims, dropout_rate, epochs (50), batch_size (256),
 - All paths from `from src.configs.paths import *`
 - `make_dataloader()` from `torch_dataset.py` is the standard DataLoader factory
 - `attacker.py` functions are called **inside** `client.py`'s `fit()` method
-- Server NEVER sees raw CIC-IDS2017 data — only PyTorch weight arrays (NumPy ndarrays)
+- Server NEVER sees raw CSE-CIC-IDS2018 data — only PyTorch weight arrays (NumPy ndarrays)
 - `server_round` is sent from server to client via Flower's `config` dict in `configure_fit()`
 
 ---

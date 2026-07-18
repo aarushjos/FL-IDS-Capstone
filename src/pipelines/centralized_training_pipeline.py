@@ -133,7 +133,7 @@ def run_centralized_training():
             scheduler.step(val_loss)
 
             is_best = val_f1 > best_macro_f1
-            flag = "  ★ NEW BEST" if is_best else ""
+            flag = "  * NEW BEST" if is_best else ""
             print(
                 f"  Epoch {epoch+1:03d}/{cfg['epochs']} "
                 f"| Train Loss: {train_loss:.4f} "

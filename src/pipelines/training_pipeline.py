@@ -18,6 +18,8 @@ from src.components.client.client import FLIDSClient
 from src.components.server.aggregator import RobustFLIDSStrategy
 from src.components.server.baselines import get_baseline_strategy
 from src.components.server.ssfg_aggregator import SSFGAggregator
+from src.components.server.triage_aggregator import TriageAggregator
+from src.components.server.ablation_aggregators import FullModelCosineAggregator, FinalLayerNoSimplexAggregator
 from src.components.server.server import get_initial_parameters, server_evaluate_fn
 from src.components.evaluation.evaluator import log_round_results, log_trust_scores
 
@@ -87,6 +89,12 @@ def _build_strategy(strategy_name: str, initial_parameters):
         return RobustFLIDSStrategy(initial_parameters=initial_parameters)
     elif strategy_name == "ssfg":
         return SSFGAggregator(initial_parameters=initial_parameters)
+    elif strategy_name == "triage":
+        return TriageAggregator(initial_parameters=initial_parameters)
+    elif strategy_name == "full_model_cosine":
+        return FullModelCosineAggregator(initial_parameters=initial_parameters)
+    elif strategy_name == "final_no_simplex":
+        return FinalLayerNoSimplexAggregator(initial_parameters=initial_parameters)
     else:
         return get_baseline_strategy(strategy_name)
 

@@ -63,6 +63,10 @@ defense:
   ae_hidden_factor: 4         # Bottleneck = layer_dim // ae_hidden_factor
   ae_train_epochs: 5          # AE refit epochs per round on trusted weight vectors
 
+  # MSFT Triage (Novelty) — Multi-Stage Final-Layer Triage
+  triage_soft_threshold: -2.0  # Clients below this MAD score go to SVD stage 2 (wider net than mad_threshold=-3.0)
+  svd_keep_ratio: 0.9          # Fraction of singular values to keep in spectral filter
+
 # ─── Evaluation ───────────────────────────────────────────────────
 evaluation:
   metrics: ["macro_f1", "weighted_f1", "accuracy", "asr", "fpr"]

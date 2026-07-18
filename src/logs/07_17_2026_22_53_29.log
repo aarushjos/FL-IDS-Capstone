@@ -1,0 +1,67 @@
+[2026-07-17 22:53:29,571] 70 root - INFO - Centralized training pipeline started
+[2026-07-17 22:53:30,322] 76 root - INFO - Device: cuda
+[2026-07-17 22:53:39,962] 94 root - INFO - Train size: 10,389,104 | Test size: 3,246,589
+[2026-07-17 22:53:40,047] 95 root - INFO - Features: 44 | Classes: 15
+[2026-07-17 22:53:41,548] 115 root - INFO - Model parameters: 54,543
+[2026-07-17 22:53:43,071] 29 root - INFO - Class weights (capped at 10.0): {0: 0.0802517945335163, 1: 3.781534401645237, 2: 10.0, 3: 10.0, 4: 1.5771462576359285, 5: 10.0, 6: 1.8805816367720716, 7: 10.0, 8: 2.340022681482833, 9: 7.7550882693240775, 10: 10.0, 11: 5.59126632384243, 12: 6.682556957791414, 13: 10.0, 14: 5.768743926748957}
+[2026-07-17 22:58:47,430] 144 root - INFO - Epoch 01/50 | Train Loss: 0.2449 | Val Loss: 0.2181 | Val Macro F1: 0.6923
+[2026-07-17 22:58:47,443] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-17 23:03:56,900] 144 root - INFO - Epoch 02/50 | Train Loss: 0.2233 | Val Loss: 0.2170 | Val Macro F1: 0.7225
+[2026-07-17 23:03:56,907] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-17 23:11:17,065] 144 root - INFO - Epoch 03/50 | Train Loss: 0.2207 | Val Loss: 0.2052 | Val Macro F1: 0.7046
+[2026-07-17 23:16:39,222] 144 root - INFO - Epoch 04/50 | Train Loss: 0.2187 | Val Loss: 0.2100 | Val Macro F1: 0.6954
+[2026-07-17 23:21:44,291] 144 root - INFO - Epoch 05/50 | Train Loss: 0.2177 | Val Loss: 0.2038 | Val Macro F1: 0.6948
+[2026-07-17 23:26:54,128] 144 root - INFO - Epoch 06/50 | Train Loss: 0.2163 | Val Loss: 0.2087 | Val Macro F1: 0.6957
+[2026-07-17 23:32:54,355] 144 root - INFO - Epoch 07/50 | Train Loss: 0.2152 | Val Loss: 0.2108 | Val Macro F1: 0.7028
+[2026-07-17 23:40:05,928] 144 root - INFO - Epoch 08/50 | Train Loss: 0.2155 | Val Loss: 0.2125 | Val Macro F1: 0.6915
+[2026-07-17 23:50:38,222] 144 root - INFO - Epoch 09/50 | Train Loss: 0.2143 | Val Loss: 0.2146 | Val Macro F1: 0.7038
+[2026-07-18 00:03:03,942] 144 root - INFO - Epoch 10/50 | Train Loss: 0.2145 | Val Loss: 0.2026 | Val Macro F1: 0.6989
+[2026-07-18 00:15:10,544] 144 root - INFO - Epoch 11/50 | Train Loss: 0.2146 | Val Loss: 0.1986 | Val Macro F1: 0.7050
+[2026-07-18 00:31:16,956] 144 root - INFO - Epoch 12/50 | Train Loss: 0.2129 | Val Loss: 0.2065 | Val Macro F1: 0.6985
+[2026-07-18 00:51:25,249] 144 root - INFO - Epoch 13/50 | Train Loss: 0.2134 | Val Loss: 0.2035 | Val Macro F1: 0.6952
+[2026-07-18 01:10:51,773] 144 root - INFO - Epoch 14/50 | Train Loss: 0.2131 | Val Loss: 0.2088 | Val Macro F1: 0.7328
+[2026-07-18 01:10:51,820] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 01:21:56,540] 144 root - INFO - Epoch 15/50 | Train Loss: 0.2135 | Val Loss: 0.2038 | Val Macro F1: 0.7065
+[2026-07-18 01:32:28,363] 144 root - INFO - Epoch 16/50 | Train Loss: 0.2125 | Val Loss: 0.2056 | Val Macro F1: 0.6905
+[2026-07-18 01:41:19,066] 144 root - INFO - Epoch 17/50 | Train Loss: 0.2122 | Val Loss: 0.2092 | Val Macro F1: 0.6885
+[2026-07-18 01:53:03,009] 144 root - INFO - Epoch 18/50 | Train Loss: 0.2027 | Val Loss: 0.2035 | Val Macro F1: 0.7055
+[2026-07-18 02:04:36,153] 144 root - INFO - Epoch 19/50 | Train Loss: 0.2058 | Val Loss: 0.2029 | Val Macro F1: 0.7099
+[2026-07-18 02:15:40,761] 144 root - INFO - Epoch 20/50 | Train Loss: 0.2046 | Val Loss: 0.2043 | Val Macro F1: 0.7107
+[2026-07-18 02:27:46,346] 144 root - INFO - Epoch 21/50 | Train Loss: 0.2044 | Val Loss: 0.1913 | Val Macro F1: 0.7227
+[2026-07-18 02:39:32,134] 144 root - INFO - Epoch 22/50 | Train Loss: 0.2047 | Val Loss: 0.2028 | Val Macro F1: 0.7147
+[2026-07-18 02:50:56,735] 144 root - INFO - Epoch 23/50 | Train Loss: 0.2040 | Val Loss: 0.2041 | Val Macro F1: 0.7112
+[2026-07-18 03:02:23,659] 144 root - INFO - Epoch 24/50 | Train Loss: 0.2050 | Val Loss: 0.2034 | Val Macro F1: 0.7211
+[2026-07-18 03:13:45,863] 144 root - INFO - Epoch 25/50 | Train Loss: 0.2031 | Val Loss: 0.2107 | Val Macro F1: 0.7146
+[2026-07-18 03:25:17,991] 144 root - INFO - Epoch 26/50 | Train Loss: 0.2034 | Val Loss: 0.1807 | Val Macro F1: 0.7240
+[2026-07-18 03:36:55,181] 144 root - INFO - Epoch 27/50 | Train Loss: 0.2040 | Val Loss: 0.2059 | Val Macro F1: 0.6767
+[2026-07-18 03:48:41,170] 144 root - INFO - Epoch 28/50 | Train Loss: 0.2042 | Val Loss: 0.2021 | Val Macro F1: 0.7183
+[2026-07-18 04:00:29,514] 144 root - INFO - Epoch 29/50 | Train Loss: 0.2030 | Val Loss: 0.2016 | Val Macro F1: 0.7132
+[2026-07-18 04:08:49,520] 144 root - INFO - Epoch 30/50 | Train Loss: 0.2039 | Val Loss: 0.2018 | Val Macro F1: 0.7058
+[2026-07-18 04:11:45,679] 144 root - INFO - Epoch 31/50 | Train Loss: 0.2029 | Val Loss: 0.2029 | Val Macro F1: 0.7187
+[2026-07-18 04:14:41,147] 144 root - INFO - Epoch 32/50 | Train Loss: 0.2045 | Val Loss: 0.2017 | Val Macro F1: 0.7087
+[2026-07-18 04:17:36,987] 144 root - INFO - Epoch 33/50 | Train Loss: 0.1882 | Val Loss: 0.1743 | Val Macro F1: 0.7432
+[2026-07-18 04:17:37,012] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 04:20:32,200] 144 root - INFO - Epoch 34/50 | Train Loss: 0.1865 | Val Loss: 0.1775 | Val Macro F1: 0.7456
+[2026-07-18 04:20:32,205] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 04:23:27,234] 144 root - INFO - Epoch 35/50 | Train Loss: 0.1906 | Val Loss: 0.1750 | Val Macro F1: 0.7380
+[2026-07-18 04:26:21,676] 144 root - INFO - Epoch 36/50 | Train Loss: 0.1894 | Val Loss: 0.1746 | Val Macro F1: 0.7453
+[2026-07-18 04:29:12,432] 144 root - INFO - Epoch 37/50 | Train Loss: 0.1855 | Val Loss: 0.1753 | Val Macro F1: 0.7442
+[2026-07-18 04:32:08,004] 144 root - INFO - Epoch 38/50 | Train Loss: 0.1856 | Val Loss: 0.1919 | Val Macro F1: 0.7203
+[2026-07-18 04:35:03,285] 144 root - INFO - Epoch 39/50 | Train Loss: 0.1862 | Val Loss: 0.1771 | Val Macro F1: 0.7249
+[2026-07-18 04:37:58,148] 144 root - INFO - Epoch 40/50 | Train Loss: 0.1785 | Val Loss: 0.1731 | Val Macro F1: 0.7559
+[2026-07-18 04:37:58,154] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 04:40:54,093] 144 root - INFO - Epoch 41/50 | Train Loss: 0.1778 | Val Loss: 0.1736 | Val Macro F1: 0.7456
+[2026-07-18 04:43:48,589] 144 root - INFO - Epoch 42/50 | Train Loss: 0.1773 | Val Loss: 0.1730 | Val Macro F1: 0.7455
+[2026-07-18 04:46:44,599] 144 root - INFO - Epoch 43/50 | Train Loss: 0.1774 | Val Loss: 0.1731 | Val Macro F1: 0.7516
+[2026-07-18 04:49:39,605] 144 root - INFO - Epoch 44/50 | Train Loss: 0.1775 | Val Loss: 0.1733 | Val Macro F1: 0.7459
+[2026-07-18 04:52:35,243] 144 root - INFO - Epoch 45/50 | Train Loss: 0.1778 | Val Loss: 0.1729 | Val Macro F1: 0.7418
+[2026-07-18 04:55:30,707] 144 root - INFO - Epoch 46/50 | Train Loss: 0.1772 | Val Loss: 0.1729 | Val Macro F1: 0.7566
+[2026-07-18 04:55:30,719] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 04:58:25,679] 144 root - INFO - Epoch 47/50 | Train Loss: 0.1774 | Val Loss: 0.1728 | Val Macro F1: 0.7550
+[2026-07-18 05:01:20,150] 144 root - INFO - Epoch 48/50 | Train Loss: 0.1775 | Val Loss: 0.1736 | Val Macro F1: 0.7561
+[2026-07-18 05:04:15,801] 144 root - INFO - Epoch 49/50 | Train Loss: 0.1774 | Val Loss: 0.1732 | Val Macro F1: 0.7570
+[2026-07-18 05:04:15,812] 162 root - INFO -   \u2705 New best saved \u2192 C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-18 05:07:10,586] 144 root - INFO - Epoch 50/50 | Train Loss: 0.1774 | Val Loss: 0.1730 | Val Macro F1: 0.7444
+[2026-07-18 05:07:10,586] 169 root - INFO - 
+Training complete. Best Macro F1: 0.7570
+[2026-07-18 05:07:10,586] 170 root - INFO - Model saved at: C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
