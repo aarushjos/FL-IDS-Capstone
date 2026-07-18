@@ -11,7 +11,7 @@ from sklearn.metrics import f1_score, classification_report
 from src.logging.logger import logging
 from src.exception.exception import FLIDSException
 from src.configs.config import CONFIG
-from src.configs.paths import PREPROCESSED_DIR, MODELS_DIR, ensure_dirs
+from src.configs.paths import PREPROCESSED_DIR, MODELS_DIR, DATA_DIR, ensure_dirs
 from src.components.model.model import MLPClassifier
 from src.components.data.torch_dataset import make_dataloader
 from src.components.data.data_partitioner import load_partition
@@ -75,28 +75,19 @@ def run_centralized_training():
         print(f"[Device]  {device}" + (f"  ({torch.cuda.get_device_name(0)})" if torch.cuda.is_available() else "  (no GPU found)"))
         logging.info(f"Device: {device}")
 
-        # Load scaler and test set saved by data_pipeline
-        with open(PREPROCESSED_DIR / "scaler.pkl", "rb") as f:
-            scaler = pickle.load(f)
+        # Load test set
         test_data = np.load(PREPROCESSED_DIR / "test_set.npz")
-        X_test, y_test = test_data["X"], test_data["y"]
+        X_test, y_test = test_data["X_test"], test_data["y_test"]
 
-        # Aggregate all client training shards into one train set
-        # (centralized training uses all data, not federated partitions)
-        pre_df_path = PREPROCESSED_DIR / "cicids2017_preprocessed.parquet"
-        import pandas as pd
-        import pickle as pkl
-        df = pd.read_parquet(pre_df_path)
-        with open(PREPROCESSED_DIR / "feature_cols.pkl", "rb") as f:
-            feature_cols = pkl.load(f)
-
-        from sklearn.model_selection import train_test_split
-        X_all = df[feature_cols].values.astype("float32")
-        y_all = df["Label"].values.astype("int64")
-        X_train_raw, _, y_train, _ = train_test_split(
-            X_all, y_all, test_size=0.2, stratify=y_all, random_state=42
-        )
-        X_train = scaler.transform(X_train_raw)
+        # Build train set from all 50 client shards (already scaled + partitioned)
+        num_clients = CONFIG["federated"]["num_clients"]
+        X_parts, y_parts = [], []
+        for cid in range(num_clients):
+            shard = np.load(DATA_DIR / f"client_{cid:04d}.npz")
+            X_parts.append(shard["X_train"])
+            y_parts.append(shard["y_train"])
+        X_train = np.concatenate(X_parts, axis=0)
+        y_train = np.concatenate(y_parts, axis=0)
 
         print(f"[Data]    Train: {len(X_train):,} rows  |  Test: {len(X_test):,} rows")
         print(f"[Data]    Features: {X_train.shape[1]}  |  Classes: {len(np.unique(y_train))}")
