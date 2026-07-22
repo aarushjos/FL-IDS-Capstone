@@ -1,0 +1,83 @@
+[2026-07-19 13:12:22,152] 268 flwr - WARNING - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 13:12:22,154] 241 flwr - INFO - Starting Flower simulation, config: num_rounds=5, no round_timeout
+[2026-07-19 13:12:29,262] 264 flwr - INFO - Flower VCE: Ray initialized with resources: {'object_store_memory': 2554753843.0, 'GPU': 1.0, 'memory': 5961092301.0, 'node:__internal_head__': 1.0, 'node:127.0.0.1': 1.0, 'accelerator_type:G': 1.0, 'CPU': 6.0}
+[2026-07-19 13:12:29,262] 270 flwr - INFO - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-07-19 13:12:29,262] 293 flwr - INFO - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-07-19 13:12:29,283] 339 flwr - INFO - Flower VCE: Creating VirtualClientEngineActorPool with 6 actors
+[2026-07-19 13:12:29,283] 91 flwr - INFO - [INIT]
+[2026-07-19 13:12:29,283] 272 flwr - INFO - Using initial global parameters provided by strategy
+[2026-07-19 13:12:29,283] 93 flwr - INFO - Starting evaluation of initial global parameters
+[2026-07-19 13:12:29,283] 105 flwr - INFO - Evaluation returned no results (`None`)
+[2026-07-19 13:12:29,283] 111 flwr - INFO - 
+[2026-07-19 13:12:29,283] 112 flwr - INFO - [ROUND 1]
+[2026-07-19 13:12:29,284] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:14:52,680] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 13:14:52,704] 251 flwr - WARNING - No fit_metrics_aggregation_fn provided
+[2026-07-19 13:14:52,704] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:14:57,047] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 13:14:57,047] 111 flwr - INFO - 
+[2026-07-19 13:14:57,047] 112 flwr - INFO - [ROUND 2]
+[2026-07-19 13:14:57,047] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:17:17,288] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 13:17:17,313] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:17:21,916] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 13:17:21,916] 111 flwr - INFO - 
+[2026-07-19 13:17:21,916] 112 flwr - INFO - [ROUND 3]
+[2026-07-19 13:17:21,916] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:19:09,768] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 13:19:09,790] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:19:14,354] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 13:19:14,354] 111 flwr - INFO - 
+[2026-07-19 13:19:14,354] 112 flwr - INFO - [ROUND 4]
+[2026-07-19 13:19:14,354] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:21:00,117] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 13:21:00,141] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:21:04,839] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 13:21:04,841] 111 flwr - INFO - 
+[2026-07-19 13:21:04,841] 112 flwr - INFO - [ROUND 5]
+[2026-07-19 13:21:04,841] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:22:50,579] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 13:22:50,603] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 13:22:56,338] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 13:22:56,340] 491 flwr - INFO - 
+[2026-07-19 13:22:56,340] 492 flwr - INFO - [SUMMARY]
+[2026-07-19 13:22:56,340] 493 flwr - INFO - Run finished 5 round(s) in 627.06s
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	History (loss, distributed):
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 		round 1: 0.12499149568735048
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 		round 2: 0.08292477534184049
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 		round 3: 0.08161376164489614
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 		round 4: 0.07675437998679356
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 		round 5: 0.07657142900590079
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	History (metrics, distributed, evaluate):
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	{'macro_f1': [(1, 0.4986194929661896),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	              (2, 0.7089241733500666),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	              (3, 0.7163748083414702),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	              (4, 0.7225099461032383),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	              (5, 0.7258764688455074)],
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	 'target_class_accuracy': [(1, 0.9997470720159481),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	                           (2, 0.9993471218539746),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	                           (3, 0.9997894343384002),
+[2026-07-19 13:22:56,340] 495 flwr - INFO - 	                           (4, 0.999676052828308),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                           (5, 0.9998716670819836)],
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	 'val_accuracy': [(1, 0.9736506915675531),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                  (2, 0.9821167563143124),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                  (3, 0.9826304206200721),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                  (4, 0.9828809885741013),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                  (5, 0.9829425865294668)],
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	 'weighted_f1': [(1, 0.9668905642724174),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                 (2, 0.9785336763613204),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                 (3, 0.9790895851525808),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                 (4, 0.9793209563594952),
+[2026-07-19 13:22:56,342] 495 flwr - INFO - 	                 (5, 0.9794058469057243)]}
+[2026-07-19 13:22:56,342] 496 flwr - INFO - 

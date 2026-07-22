@@ -1,9 +1,10 @@
 import sys
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Callable, Dict, List, Optional, Tuple, Union
 
 import flwr as fl
 import numpy as np
 from flwr.common import (
+    EvaluateRes,
     FitRes,
     Parameters,
     Scalar,
@@ -14,249 +15,666 @@ from flwr.server.client_proxy import ClientProxy
 from scipy.spatial.distance import pdist, squareform
 
 from src.configs.config import CONFIG
-from src.logging.logger import logging
 from src.exception.exception import FLIDSException
+from src.logging.logger import logging
 
 
-def extract_final_layer(ndarrays: List[np.ndarray]) -> np.ndarray:
-    # The MLP parameter list order from state_dict is:
-    #   [layer0.weight, layer0.bias, layer0.bn.weight, layer0.bn.bias, layer0.bn.rm, layer0.bn.rv,
-    #    layer1.weight, ..., output.weight, output.bias]
-    # The final classification layer weight is the second-to-last ndarray (output.weight).
-    # We take index -2 (weight) and flatten to 1D.
+EvaluateMetricsAggregationFn = Callable[
+    [List[Tuple[int, Dict[str, Scalar]]]],
+    Dict[str, Scalar],
+]
+
+
+def extract_final_layer(
+    ndarrays: List[np.ndarray],
+) -> np.ndarray:
+    """
+    Extract and flatten the final classification-layer weights.
+
+    The final two arrays are expected to be:
+        output.weight
+        output.bias
+    """
     weight = ndarrays[-2]
     return weight.flatten()
 
 
-def compute_layer_wise_cosine_similarity(final_layers: np.ndarray) -> np.ndarray:
-    # final_layers: (K, D) matrix — one flattened final-layer per client
-    # Returns: (K, K) cosine similarity matrix
-    distances = squareform(pdist(final_layers, metric="cosine"))
-    return 1.0 - distances
+def compute_layer_wise_cosine_similarity(
+    final_layers: np.ndarray,
+) -> np.ndarray:
+    """
+    Compute pairwise cosine similarity between client final layers.
+    """
+    distances = squareform(
+        pdist(
+            final_layers,
+            metric="cosine",
+        )
+    )
+
+    similarities = 1.0 - distances
+
+    # Protect against NaN values from zero vectors.
+    return np.nan_to_num(
+        similarities,
+        nan=0.0,
+        posinf=1.0,
+        neginf=-1.0,
+    )
 
 
-def compute_mad_scores(sim_matrix: np.ndarray) -> np.ndarray:
-    # Per-client consensus = median similarity to all other clients
-    consensus = np.median(sim_matrix, axis=1)
-    med = np.median(consensus)
-    mad = np.median(np.abs(consensus - med))
-    scores = 0.6745 * (consensus - med) / (mad + 1e-9)
-    return scores
+def compute_mad_scores(
+    sim_matrix: np.ndarray,
+) -> np.ndarray:
+    """
+    Calculate robust MAD-based consensus scores.
+    """
+    consensus = np.median(
+        sim_matrix,
+        axis=1,
+    )
+
+    median_consensus = np.median(consensus)
+
+    mad = np.median(
+        np.abs(
+            consensus - median_consensus
+        )
+    )
+
+    return (
+        0.6745
+        * (consensus - median_consensus)
+        / (mad + 1e-9)
+    )
 
 
-def temperature_scaled_softmax(scores: np.ndarray, temperature: float) -> np.ndarray:
+def temperature_scaled_softmax(
+    scores: np.ndarray,
+    temperature: float,
+) -> np.ndarray:
+    """
+    Convert reputation scores into normalized trust weights.
+    """
     scaled = scores * temperature
     shifted = scaled - np.max(scaled)
-    exp_vals = np.exp(shifted)
-    return exp_vals / (exp_vals.sum() + 1e-9)
+
+    exp_values = np.exp(shifted)
+
+    return exp_values / (
+        exp_values.sum() + 1e-9
+    )
 
 
-def project_capped_simplex(v: np.ndarray, cap_t: float) -> np.ndarray:
-    # Project v onto the capped unit simplex: sum(w)=1, 0<=w_i<=cap_t.
-    # Uses binary search on the Lagrange multiplier gamma.
-    def feasibility(gamma):
-        return np.clip(v - gamma, 0.0, cap_t).sum() - 1.0
+def project_capped_simplex(
+    values: np.ndarray,
+    cap_t: float,
+) -> np.ndarray:
+    """
+    Project values onto a capped unit simplex:
 
-    lo, hi = v.min() - 1.0, v.max()
+        sum(weights) = 1
+        0 <= weight_i <= cap_t
+    """
+
+    def feasibility(gamma: float) -> float:
+        return (
+            np.clip(
+                values - gamma,
+                0.0,
+                cap_t,
+            ).sum()
+            - 1.0
+        )
+
+    lower = values.min() - 1.0
+    upper = values.max()
+
     for _ in range(64):
-        mid = (lo + hi) / 2.0
-        if feasibility(mid) > 0:
-            lo = mid
-        else:
-            hi = mid
+        midpoint = (
+            lower + upper
+        ) / 2.0
 
-    weights = np.clip(v - hi, 0.0, cap_t)
+        if feasibility(midpoint) > 0:
+            lower = midpoint
+        else:
+            upper = midpoint
+
+    weights = np.clip(
+        values - upper,
+        0.0,
+        cap_t,
+    )
+
     total = weights.sum()
+
     if total > 1e-9:
         weights = weights / total
 
     return weights
 
 
-
-class RobustFLIDSStrategy(fl.server.strategy.Strategy):
+class RobustFLIDSStrategy(
+    fl.server.strategy.Strategy
+):
     """
-    Variant A — AL-CMT: Adaptive Layer-Wise Cosine-MAD Trust aggregation.
+    AL-CMT: Adaptive Layer-Wise Cosine-MAD Trust aggregation.
 
-    Defense pipeline per round:
-      1. Deserialize client updates → NumPy ndarrays
-      2. Extract final classification layer from each client
-      3. Compute pairwise cosine similarity → MAD robust Z-scores
-      4. Update EMA reputation scores
-      5. Temperature-scaled softmax → trust weights
-      6. Capped simplex projection → final aggregation weights
-      7. Weighted average across ALL layers → global model
+    Per-round process:
+
+    1. Deserialize client models.
+    2. Extract each client's final classification layer.
+    3. Compute pairwise cosine similarities.
+    4. Calculate robust MAD scores.
+    5. Update persistent EMA reputation scores.
+    6. Apply temperature-scaled softmax.
+    7. Project weights onto a capped simplex.
+    8. Aggregate every model layer using the trust weights.
     """
 
-    def __init__(self, initial_parameters: Parameters):
+    def __init__(
+        self,
+        initial_parameters: Parameters,
+        evaluate_metrics_aggregation_fn: Optional[
+            EvaluateMetricsAggregationFn
+        ] = None,
+    ):
         super().__init__()
-        self.initial_parameters = initial_parameters
+
+        self.initial_parameters = (
+            initial_parameters
+        )
+
+        self.evaluate_metrics_aggregation_fn = (
+            evaluate_metrics_aggregation_fn
+        )
 
         defense = CONFIG["defense"]
         federated = CONFIG["federated"]
 
-        self.ema_momentum: float = defense["ema_momentum"]
-        self.temperature: float = defense["temperature"]
-        self.mad_threshold: float = defense["mad_threshold"]
-        self.initial_reputation: float = defense["initial_reputation"]
-        self.max_byzantine_fraction: float = defense["max_byzantine_fraction"]
-        self.clients_per_round: int = federated["clients_per_round"]
-        self.num_rounds: int = federated["num_rounds"]
-        self.local_epochs: int = federated["local_epochs"]
-        self.lr: float = federated["learning_rate"]
-        self.batch_size: int = federated["batch_size"]
+        self.ema_momentum = float(
+            defense["ema_momentum"]
+        )
 
-        # cap_t bounds max influence of any single client
-        effective_K = self.clients_per_round
-        b_f = int(self.max_byzantine_fraction * effective_K)
-        self.cap_t: float = 1.0 / max(effective_K - b_f, 1)
+        self.temperature = float(
+            defense["temperature"]
+        )
 
-        # Persistent state across rounds
-        self.reputation_scores: Dict[str, float] = {}
+        self.mad_threshold = float(
+            defense["mad_threshold"]
+        )
+
+        self.initial_reputation = float(
+            defense["initial_reputation"]
+        )
+
+        self.max_byzantine_fraction = float(
+            defense["max_byzantine_fraction"]
+        )
+
+        self.clients_per_round = int(
+            federated["clients_per_round"]
+        )
+
+        self.num_rounds = int(
+            federated["num_rounds"]
+        )
+
+        self.local_epochs = int(
+            federated["local_epochs"]
+        )
+
+        self.lr = float(
+            federated["learning_rate"]
+        )
+
+        self.batch_size = int(
+            federated["batch_size"]
+        )
+
+        effective_clients = (
+            self.clients_per_round
+        )
+
+        expected_byzantine_clients = int(
+            self.max_byzantine_fraction
+            * effective_clients
+        )
+
+        self.cap_t = 1.0 / max(
+            effective_clients
+            - expected_byzantine_clients,
+            1,
+        )
+
+        self.reputation_scores: Dict[
+            str,
+            float,
+        ] = {}
 
         logging.info(
-            f"[Aggregator] AL-CMT initialized — cap_t={self.cap_t:.4f}, "
-            f"temperature={self.temperature}, ema_momentum={self.ema_momentum}"
+            "[Aggregator] AL-CMT initialized — "
+            f"cap_t={self.cap_t:.4f}, "
+            f"temperature={self.temperature}, "
+            f"ema_momentum={self.ema_momentum}"
         )
 
     def _update_ema_reputation(
-        self, client_ids: List[str], mad_scores: np.ndarray
+        self,
+        client_ids: List[str],
+        mad_scores: np.ndarray,
     ) -> np.ndarray:
-        mu = self.ema_momentum
-        tau = self.mad_threshold
+        momentum = self.ema_momentum
+        threshold = self.mad_threshold
 
-        for i, cid in enumerate(client_ids):
-            if cid not in self.reputation_scores:
-                self.reputation_scores[cid] = self.initial_reputation
+        for index, client_id in enumerate(
+            client_ids
+        ):
+            if (
+                client_id
+                not in self.reputation_scores
+            ):
+                self.reputation_scores[
+                    client_id
+                ] = self.initial_reputation
 
-            reward = mad_scores[i] if mad_scores[i] >= tau else tau
-            self.reputation_scores[cid] = (
-                mu * self.reputation_scores[cid] + (1 - mu) * reward
+            reward = (
+                mad_scores[index]
+                if mad_scores[index] >= threshold
+                else threshold
             )
 
-        return np.array([self.reputation_scores[cid] for cid in client_ids])
+            old_reputation = (
+                self.reputation_scores[
+                    client_id
+                ]
+            )
+
+            self.reputation_scores[
+                client_id
+            ] = (
+                momentum * old_reputation
+                + (1.0 - momentum) * reward
+            )
+
+        return np.array(
+            [
+                self.reputation_scores[
+                    client_id
+                ]
+                for client_id in client_ids
+            ],
+            dtype=np.float64,
+        )
 
     def initialize_parameters(
-        self, client_manager: fl.server.client_manager.ClientManager
+        self,
+        client_manager: (
+            fl.server.client_manager.ClientManager
+        ),
     ) -> Optional[Parameters]:
-        return self.initial_parameters
+        parameters = self.initial_parameters
+
+        # Return initial parameters only once.
+        self.initial_parameters = None
+
+        return parameters
 
     def configure_fit(
         self,
         server_round: int,
         parameters: Parameters,
-        client_manager: fl.server.client_manager.ClientManager,
-    ) -> List[Tuple[ClientProxy, fl.common.FitIns]]:
+        client_manager: (
+            fl.server.client_manager.ClientManager
+        ),
+    ) -> List[
+        Tuple[
+            ClientProxy,
+            fl.common.FitIns,
+        ]
+    ]:
         config = {
             "server_round": server_round,
             "local_epochs": self.local_epochs,
             "lr": self.lr,
             "batch_size": self.batch_size,
         }
-        fit_ins = fl.common.FitIns(parameters, config)
-        clients = client_manager.sample(
-            num_clients=self.clients_per_round, min_num_clients=self.clients_per_round
+
+        fit_instructions = fl.common.FitIns(
+            parameters,
+            config,
         )
-        return [(client, fit_ins) for client in clients]
+
+        clients = client_manager.sample(
+            num_clients=self.clients_per_round,
+            min_num_clients=(
+                self.clients_per_round
+            ),
+        )
+
+        return [
+            (
+                client,
+                fit_instructions,
+            )
+            for client in clients
+        ]
 
     def aggregate_fit(
         self,
         server_round: int,
-        results: List[Tuple[ClientProxy, FitRes]],
-        failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
-    ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
+        results: List[
+            Tuple[
+                ClientProxy,
+                FitRes,
+            ]
+        ],
+        failures: List[
+            Union[
+                Tuple[
+                    ClientProxy,
+                    FitRes,
+                ],
+                BaseException,
+            ]
+        ],
+    ) -> Tuple[
+        Optional[Parameters],
+        Dict[str, Scalar],
+    ]:
         try:
             if not results:
-                logging.warning(f"[Aggregator] Round {server_round}: no results received.")
+                logging.warning(
+                    "[Aggregator] "
+                    f"Round {server_round}: "
+                    "no client results received."
+                )
+
                 return None, {}
 
             if failures:
-                logging.warning(f"[Aggregator] Round {server_round}: {len(failures)} client(s) failed.")
+                logging.warning(
+                    "[Aggregator] "
+                    f"Round {server_round}: "
+                    f"{len(failures)} client(s) failed."
+                )
 
-            client_ids = [str(proxy.cid) for proxy, _ in results]
-            all_ndarrays = [parameters_to_ndarrays(fit_res.parameters) for _, fit_res in results]
-            num_examples = [fit_res.num_examples for _, fit_res in results]
+            client_ids = [
+                str(client_proxy.cid)
+                for client_proxy, _ in results
+            ]
 
-            # Step 2: extract final layer per client
-            final_layers = np.stack([extract_final_layer(nd) for nd in all_ndarrays])
+            all_ndarrays = [
+                parameters_to_ndarrays(
+                    fit_result.parameters
+                )
+                for _, fit_result in results
+            ]
 
-            # Step 3: cosine similarity → MAD Z-scores
-            sim_matrix = compute_layer_wise_cosine_similarity(final_layers)
-            mad_scores = compute_mad_scores(sim_matrix)
-
-            n_flagged = int((mad_scores < self.mad_threshold).sum())
-            logging.info(
-                f"[Aggregator] Round {server_round}: {n_flagged}/{len(client_ids)} clients flagged by MAD."
+            final_layers = np.stack(
+                [
+                    extract_final_layer(
+                        client_parameters
+                    )
+                    for client_parameters
+                    in all_ndarrays
+                ]
             )
 
-            # Step 4: EMA reputation update
-            reputation = self._update_ema_reputation(client_ids, mad_scores)
-
-            # Step 5: temperature-scaled softmax
-            trust_weights = temperature_scaled_softmax(reputation, self.temperature)
-
-            # Step 6: capped simplex projection
-            final_weights = project_capped_simplex(trust_weights, self.cap_t)
-
-            logging.info(
-                f"[Aggregator] Round {server_round}: trust_weights min={final_weights.min():.4f} "
-                f"max={final_weights.max():.4f} zero_count={(final_weights == 0).sum()}"
+            similarity_matrix = (
+                compute_layer_wise_cosine_similarity(
+                    final_layers
+                )
             )
 
-            # Step 7: weighted aggregation across ALL layers
-            global_params = [
+            mad_scores = compute_mad_scores(
+                similarity_matrix
+            )
+
+            number_flagged = int(
+                (
+                    mad_scores
+                    < self.mad_threshold
+                ).sum()
+            )
+
+            logging.info(
+                "[Aggregator] "
+                f"Round {server_round}: "
+                f"{number_flagged}/"
+                f"{len(client_ids)} clients "
+                "flagged by MAD."
+            )
+
+            reputation_scores = (
+                self._update_ema_reputation(
+                    client_ids,
+                    mad_scores,
+                )
+            )
+
+            trust_weights = (
+                temperature_scaled_softmax(
+                    reputation_scores,
+                    self.temperature,
+                )
+            )
+
+            final_weights = (
+                project_capped_simplex(
+                    trust_weights,
+                    self.cap_t,
+                )
+            )
+
+            if (
+                not np.isfinite(
+                    final_weights
+                ).all()
+                or final_weights.sum() <= 0
+            ):
+                logging.warning(
+                    "[Aggregator] Invalid trust "
+                    "weights detected. Falling back "
+                    "to uniform aggregation."
+                )
+
+                final_weights = np.ones(
+                    len(results),
+                    dtype=np.float64,
+                ) / len(results)
+
+            logging.info(
+                "[Aggregator] "
+                f"Round {server_round}: "
+                "trust weights "
+                f"min={final_weights.min():.4f}, "
+                f"max={final_weights.max():.4f}, "
+                "zero_count="
+                f"{int((final_weights == 0).sum())}"
+            )
+
+            global_parameters = [
                 np.average(
-                    np.stack([nd[layer_idx] for nd in all_ndarrays]),
+                    np.stack(
+                        [
+                            client_parameters[
+                                layer_index
+                            ]
+                            for client_parameters
+                            in all_ndarrays
+                        ]
+                    ),
                     axis=0,
                     weights=final_weights,
                 )
-                for layer_idx in range(len(all_ndarrays[0]))
+                for layer_index in range(
+                    len(all_ndarrays[0])
+                )
             ]
 
-            aggregated_parameters = ndarrays_to_parameters(global_params)
+            aggregated_parameters = (
+                ndarrays_to_parameters(
+                    global_parameters
+                )
+            )
 
-            metrics = {
+            aggregation_metrics: Dict[
+                str,
+                Scalar,
+            ] = {
                 "round": server_round,
                 "clients": len(client_ids),
-                "flagged": n_flagged,
-                "min_trust": float(final_weights.min()),
-                "max_trust": float(final_weights.max()),
+                "flagged": number_flagged,
+                "min_trust": float(
+                    final_weights.min()
+                ),
+                "max_trust": float(
+                    final_weights.max()
+                ),
             }
 
-            return aggregated_parameters, metrics
+            return (
+                aggregated_parameters,
+                aggregation_metrics,
+            )
 
-        except Exception as e:
-            raise FLIDSException(e, sys)
+        except Exception as error:
+            raise FLIDSException(
+                error,
+                sys,
+            )
 
     def configure_evaluate(
         self,
         server_round: int,
         parameters: Parameters,
-        client_manager: fl.server.client_manager.ClientManager,
-    ) -> List[Tuple[ClientProxy, fl.common.EvaluateIns]]:
-        evaluate_ins = fl.common.EvaluateIns(parameters, {})
-        clients = client_manager.sample(
-            num_clients=self.clients_per_round, min_num_clients=1
+        client_manager: (
+            fl.server.client_manager.ClientManager
+        ),
+    ) -> List[
+        Tuple[
+            ClientProxy,
+            fl.common.EvaluateIns,
+        ]
+    ]:
+        evaluate_instructions = (
+            fl.common.EvaluateIns(
+                parameters,
+                {
+                    "server_round": server_round,
+                },
+            )
         )
-        return [(client, evaluate_ins) for client in clients]
+
+        clients = client_manager.sample(
+            num_clients=self.clients_per_round,
+            min_num_clients=(
+                self.clients_per_round
+            ),
+        )
+
+        return [
+            (
+                client,
+                evaluate_instructions,
+            )
+            for client in clients
+        ]
 
     def aggregate_evaluate(
         self,
         server_round: int,
-        results: List[Tuple[ClientProxy, fl.common.EvaluateRes]],
-        failures: List[Union[Tuple[ClientProxy, fl.common.EvaluateRes], BaseException]],
-    ) -> Tuple[Optional[float], Dict[str, Scalar]]:
+        results: List[
+            Tuple[
+                ClientProxy,
+                EvaluateRes,
+            ]
+        ],
+        failures: List[
+            Union[
+                Tuple[
+                    ClientProxy,
+                    EvaluateRes,
+                ],
+                BaseException,
+            ]
+        ],
+    ) -> Tuple[
+        Optional[float],
+        Dict[str, Scalar],
+    ]:
         if not results:
             return None, {}
 
-        total_examples = sum(r.num_examples for _, r in results)
-        weighted_loss = sum(r.loss * r.num_examples for _, r in results) / total_examples
+        if failures:
+            logging.warning(
+                "[Aggregator] "
+                f"Evaluation round {server_round}: "
+                f"{len(failures)} client(s) failed."
+            )
 
-        return weighted_loss, {"round": server_round}
+        total_examples = sum(
+            evaluate_result.num_examples
+            for _, evaluate_result in results
+        )
+
+        if total_examples <= 0:
+            return None, {}
+
+        weighted_loss = sum(
+            evaluate_result.loss
+            * evaluate_result.num_examples
+            for _, evaluate_result in results
+        ) / total_examples
+
+        aggregated_metrics: Dict[
+            str,
+            Scalar,
+        ] = {
+            "round": server_round,
+        }
+
+        if (
+            self.evaluate_metrics_aggregation_fn
+            is not None
+        ):
+            client_metrics = [
+                (
+                    evaluate_result.num_examples,
+                    evaluate_result.metrics,
+                )
+                for _, evaluate_result in results
+            ]
+
+            calculated_metrics = (
+                self.evaluate_metrics_aggregation_fn(
+                    client_metrics
+                )
+            )
+
+            aggregated_metrics.update(
+                calculated_metrics
+            )
+        else:
+            logging.warning(
+                "[Aggregator] No evaluation metric "
+                "aggregation function was supplied."
+            )
+
+        return (
+            float(weighted_loss),
+            aggregated_metrics,
+        )
 
     def evaluate(
         self,
         server_round: int,
         parameters: Parameters,
-    ) -> Optional[Tuple[float, Dict[str, Scalar]]]:
+    ) -> Optional[
+        Tuple[
+            float,
+            Dict[str, Scalar],
+        ]
+    ]:
         return None

@@ -1,0 +1,108 @@
+[2026-07-19 15:58:23,732] 255 root - INFO - [Aggregator] AL-CMT initialized — cap_t=0.0714, temperature=2.0, ema_momentum=0.9
+[2026-07-19 15:58:25,332] 268 flwr - WARNING - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 15:58:25,333] 241 flwr - INFO - Starting Flower simulation, config: num_rounds=5, no round_timeout
+[2026-07-19 15:58:32,311] 264 flwr - INFO - Flower VCE: Ray initialized with resources: {'node:127.0.0.1': 1.0, 'GPU': 1.0, 'memory': 7160364647.0, 'accelerator_type:G': 1.0, 'node:__internal_head__': 1.0, 'object_store_memory': 3068727705.0, 'CPU': 6.0}
+[2026-07-19 15:58:32,311] 270 flwr - INFO - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-07-19 15:58:32,311] 293 flwr - INFO - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-07-19 15:58:32,325] 339 flwr - INFO - Flower VCE: Creating VirtualClientEngineActorPool with 6 actors
+[2026-07-19 15:58:32,325] 91 flwr - INFO - [INIT]
+[2026-07-19 15:58:32,325] 272 flwr - INFO - Using initial global parameters provided by strategy
+[2026-07-19 15:58:32,325] 93 flwr - INFO - Starting evaluation of initial global parameters
+[2026-07-19 15:58:32,325] 105 flwr - INFO - Evaluation returned no results (`None`)
+[2026-07-19 15:58:32,325] 111 flwr - INFO - 
+[2026-07-19 15:58:32,326] 112 flwr - INFO - [ROUND 1]
+[2026-07-19 15:58:32,326] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:00:31,907] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 16:00:31,928] 441 root - INFO - [Aggregator] Round 1: 2/20 clients flagged by MAD.
+[2026-07-19 16:00:31,928] 487 root - INFO - [Aggregator] Round 1: trust weights min=0.0296, max=0.0656, zero_count=0
+[2026-07-19 16:00:31,934] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:00:36,591] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 16:00:36,591] 111 flwr - INFO - 
+[2026-07-19 16:00:36,591] 112 flwr - INFO - [ROUND 2]
+[2026-07-19 16:00:36,591] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:02:24,401] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 16:02:24,422] 441 root - INFO - [Aggregator] Round 2: 1/20 clients flagged by MAD.
+[2026-07-19 16:02:24,423] 487 root - INFO - [Aggregator] Round 2: trust weights min=0.0183, max=0.0714, zero_count=0
+[2026-07-19 16:02:24,429] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:02:29,884] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 16:02:29,884] 111 flwr - INFO - 
+[2026-07-19 16:02:29,884] 112 flwr - INFO - [ROUND 3]
+[2026-07-19 16:02:29,884] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:04:44,708] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 16:04:44,727] 441 root - INFO - [Aggregator] Round 3: 1/20 clients flagged by MAD.
+[2026-07-19 16:04:44,727] 487 root - INFO - [Aggregator] Round 3: trust weights min=0.0149, max=0.0714, zero_count=0
+[2026-07-19 16:04:44,732] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:04:49,891] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 16:04:49,891] 111 flwr - INFO - 
+[2026-07-19 16:04:49,891] 112 flwr - INFO - [ROUND 4]
+[2026-07-19 16:04:49,891] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:06:58,453] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 16:06:58,474] 441 root - INFO - [Aggregator] Round 4: 1/20 clients flagged by MAD.
+[2026-07-19 16:06:58,474] 487 root - INFO - [Aggregator] Round 4: trust weights min=0.0139, max=0.0714, zero_count=0
+[2026-07-19 16:06:58,480] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:07:04,294] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 16:07:04,296] 111 flwr - INFO - 
+[2026-07-19 16:07:04,296] 112 flwr - INFO - [ROUND 5]
+[2026-07-19 16:07:04,296] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:08:57,700] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-19 16:08:57,719] 441 root - INFO - [Aggregator] Round 5: 1/20 clients flagged by MAD.
+[2026-07-19 16:08:57,719] 487 root - INFO - [Aggregator] Round 5: trust weights min=0.0142, max=0.0714, zero_count=0
+[2026-07-19 16:08:57,725] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 20)
+[2026-07-19 16:09:02,533] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-19 16:09:02,535] 491 flwr - INFO - 
+[2026-07-19 16:09:02,535] 492 flwr - INFO - [SUMMARY]
+[2026-07-19 16:09:02,535] 493 flwr - INFO - Run finished 5 round(s) in 630.21s
+[2026-07-19 16:09:02,535] 495 flwr - INFO - 	History (loss, distributed):
+[2026-07-19 16:09:02,535] 495 flwr - INFO - 		round 1: 0.15723534410508233
+[2026-07-19 16:09:02,535] 495 flwr - INFO - 		round 2: 0.06284856628834003
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 		round 3: 0.05794327345030108
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 		round 4: 0.057655938166280334
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 		round 5: 0.05609259909514001
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	History (metrics, distributed, fit):
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	{'clients': [(1, 20), (2, 20), (3, 20), (4, 20), (5, 20)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'flagged': [(1, 2), (2, 1), (3, 1), (4, 1), (5, 1)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'max_trust': [(1, 0.06556372402673517),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (2, 0.07142857142857142),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (3, 0.07142857142857142),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (4, 0.07142857142857142),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (5, 0.07142857142857142)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'min_trust': [(1, 0.029583164204712513),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (2, 0.018274405323154348),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (3, 0.01491269696561999),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (4, 0.013890844232314492),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	               (5, 0.014192446795049747)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'round': [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]}
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	History (metrics, distributed, evaluate):
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	{'macro_f1': [(1, 0.5063851107920067),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	              (2, 0.6746490280015552),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	              (3, 0.6760022666118092),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	              (4, 0.6745472138175191),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	              (5, 0.6841172348565938)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'round': [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'target_class_accuracy': [(1, 0.9991976077747321),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                           (2, 0.9990767505606778),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                           (3, 0.9989334662347371),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                           (4, 0.9986269623722901),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                           (5, 0.9988861201096436)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'val_accuracy': [(1, 0.9649747761592944),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                  (2, 0.9842319674595751),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                  (3, 0.9822660530535882),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                  (4, 0.9822242917279166),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                  (5, 0.9825343695710277)],
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	 'weighted_f1': [(1, 0.9550914284430996),
+[2026-07-19 16:09:02,537] 495 flwr - INFO - 	                 (2, 0.9805519536162348),
+[2026-07-19 16:09:02,539] 495 flwr - INFO - 	                 (3, 0.978733615353821),
+[2026-07-19 16:09:02,539] 495 flwr - INFO - 	                 (4, 0.9786958395680246),
+[2026-07-19 16:09:02,539] 495 flwr - INFO - 	                 (5, 0.9790152735504078)]}
+[2026-07-19 16:09:02,539] 496 flwr - INFO - 

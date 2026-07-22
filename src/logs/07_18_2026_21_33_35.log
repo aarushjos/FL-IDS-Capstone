@@ -1,0 +1,115 @@
+[2026-07-18 21:33:39,124] 268 flwr - WARNING - DEPRECATED FEATURE: flwr.simulation.start_simulation() is deprecated.
+	Instead, use the `flwr run` CLI command to start a local simulation in your Flower app, as shown for example below:
+
+		$ flwr new  # Create a new Flower app from a template
+
+		$ flwr run  # Run the Flower app in Simulation Mode
+
+	Using `start_simulation()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-18 21:33:39,127] 241 flwr - INFO - Starting Flower simulation, config: num_rounds=50, no round_timeout
+[2026-07-18 21:33:47,453] 264 flwr - INFO - Flower VCE: Ray initialized with resources: {'object_store_memory': 2203012300.0, 'GPU': 1.0, 'memory': 5140362036.0, 'node:__internal_head__': 1.0, 'accelerator_type:G': 1.0, 'node:127.0.0.1': 1.0, 'CPU': 6.0}
+[2026-07-18 21:33:47,453] 270 flwr - INFO - Optimize your simulation with Flower VCE: https://flower.ai/docs/framework/how-to-run-simulations.html
+[2026-07-18 21:33:47,453] 293 flwr - INFO - Flower VCE: Resources for each Virtual Client: {'num_cpus': 1, 'num_gpus': 0.0}
+[2026-07-18 21:33:47,468] 339 flwr - INFO - Flower VCE: Creating VirtualClientEngineActorPool with 6 actors
+[2026-07-18 21:33:47,468] 91 flwr - INFO - [INIT]
+[2026-07-18 21:33:47,468] 272 flwr - INFO - Using initial global parameters provided by strategy
+[2026-07-18 21:33:47,468] 93 flwr - INFO - Starting evaluation of initial global parameters
+[2026-07-18 21:33:47,469] 105 flwr - INFO - Evaluation returned no results (`None`)
+[2026-07-18 21:33:47,469] 111 flwr - INFO - 
+[2026-07-18 21:33:47,469] 112 flwr - INFO - [ROUND 1]
+[2026-07-18 21:33:47,469] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:35:10,360] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:35:10,386] 251 flwr - WARNING - No fit_metrics_aggregation_fn provided
+[2026-07-18 21:35:10,387] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:35:15,470] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:35:15,470] 111 flwr - INFO - 
+[2026-07-18 21:35:15,470] 112 flwr - INFO - [ROUND 2]
+[2026-07-18 21:35:15,472] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:37:41,177] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:37:41,199] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:37:49,324] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:37:49,326] 111 flwr - INFO - 
+[2026-07-18 21:37:49,326] 112 flwr - INFO - [ROUND 3]
+[2026-07-18 21:37:49,326] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:39:36,268] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:39:36,290] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:39:42,385] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:39:42,385] 111 flwr - INFO - 
+[2026-07-18 21:39:42,385] 112 flwr - INFO - [ROUND 4]
+[2026-07-18 21:39:42,385] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:42:09,344] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:42:09,368] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:42:13,060] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:42:13,060] 111 flwr - INFO - 
+[2026-07-18 21:42:13,060] 112 flwr - INFO - [ROUND 5]
+[2026-07-18 21:42:13,060] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:44:56,685] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:44:56,710] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:45:01,172] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:45:01,172] 111 flwr - INFO - 
+[2026-07-18 21:45:01,172] 112 flwr - INFO - [ROUND 6]
+[2026-07-18 21:45:01,172] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:47:34,649] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:47:34,672] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:47:41,744] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:47:41,744] 111 flwr - INFO - 
+[2026-07-18 21:47:41,744] 112 flwr - INFO - [ROUND 7]
+[2026-07-18 21:47:41,744] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:48:55,128] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:48:55,152] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:49:01,892] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:49:01,892] 111 flwr - INFO - 
+[2026-07-18 21:49:01,892] 112 flwr - INFO - [ROUND 8]
+[2026-07-18 21:49:01,892] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:50:51,657] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:50:51,679] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:50:57,188] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:50:57,188] 111 flwr - INFO - 
+[2026-07-18 21:50:57,188] 112 flwr - INFO - [ROUND 9]
+[2026-07-18 21:50:57,188] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:53:06,369] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:53:06,393] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:53:09,869] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:53:09,869] 111 flwr - INFO - 
+[2026-07-18 21:53:09,870] 112 flwr - INFO - [ROUND 10]
+[2026-07-18 21:53:09,870] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:55:54,588] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:55:54,613] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:56:00,837] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:56:00,837] 111 flwr - INFO - 
+[2026-07-18 21:56:00,837] 112 flwr - INFO - [ROUND 11]
+[2026-07-18 21:56:00,837] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:57:46,540] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:57:46,564] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:57:49,627] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:57:49,627] 111 flwr - INFO - 
+[2026-07-18 21:57:49,627] 112 flwr - INFO - [ROUND 12]
+[2026-07-18 21:57:49,627] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:59:31,690] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 21:59:31,713] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 21:59:38,140] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 21:59:38,140] 111 flwr - INFO - 
+[2026-07-18 21:59:38,140] 112 flwr - INFO - [ROUND 13]
+[2026-07-18 21:59:38,140] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:02:09,672] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 22:02:09,697] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:02:14,438] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 22:02:14,438] 111 flwr - INFO - 
+[2026-07-18 22:02:14,438] 112 flwr - INFO - [ROUND 14]
+[2026-07-18 22:02:14,438] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:06:01,590] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 22:06:01,647] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:06:08,168] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 22:06:08,170] 111 flwr - INFO - 
+[2026-07-18 22:06:08,170] 112 flwr - INFO - [ROUND 15]
+[2026-07-18 22:06:08,172] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:10:04,995] 235 flwr - INFO - aggregate_fit: received 20 results and 0 failures
+[2026-07-18 22:10:05,050] 175 flwr - INFO - configure_evaluate: strategy sampled 20 clients (out of 50)
+[2026-07-18 22:10:25,567] 189 flwr - INFO - aggregate_evaluate: received 20 results and 0 failures
+[2026-07-18 22:10:25,568] 111 flwr - INFO - 
+[2026-07-18 22:10:25,569] 112 flwr - INFO - [ROUND 16]
+[2026-07-18 22:10:25,570] 221 flwr - INFO - configure_fit: strategy sampled 20 clients (out of 50)

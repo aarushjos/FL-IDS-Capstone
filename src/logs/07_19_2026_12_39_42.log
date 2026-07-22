@@ -1,0 +1,891 @@
+[2026-07-19 12:39:44,757] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:43,902] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:44,435] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:44,532] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:45,375] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:48,365] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:41:52,143] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:42:04,354] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:42:05,138] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:46,321] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:46,580] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:48,032] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:48,082] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:51,361] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:54,002] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:43:54,567] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,574] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,582] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,590] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,598] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,606] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,614] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,620] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,628] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,636] 39 root - INFO - [Attacker] Label flip: 40 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,644] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,651] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,659] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,667] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,675] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,685] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,692] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,701] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,707] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,715] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,723] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,731] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,739] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,745] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,755] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,764] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,772] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,778] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,788] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,800] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,807] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,814] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,822] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,830] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,840] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,848] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,856] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,862] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,872] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,879] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,888] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,895] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,905] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,913] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,920] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,928] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,936] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,945] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,955] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,964] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,970] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,978] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,987] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:54,997] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,005] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,013] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,021] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,028] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,036] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,044] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,050] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,058] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,068] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,078] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,086] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,093] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,101] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,109] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,117] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,125] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,134] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,145] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,155] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,162] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,170] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,178] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,191] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,200] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,209] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,217] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,225] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,233] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,241] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,250] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,259] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,268] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,276] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,284] 39 root - INFO - [Attacker] Label flip: 43 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,292] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,302] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,309] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,317] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,325] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,338] 39 root - INFO - [Attacker] Label flip: 40 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,347] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,353] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,361] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,369] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,377] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,385] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,391] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,399] 39 root - INFO - [Attacker] Label flip: 43 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,407] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,415] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,423] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,430] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,438] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,444] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,452] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,460] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,468] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,476] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,484] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,492] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,500] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,510] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,519] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,527] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,537] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,544] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,552] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,559] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,567] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,575] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,581] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,591] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,597] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,611] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,621] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,628] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,636] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,644] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,654] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,661] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,669] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,679] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,688] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,696] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,702] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,710] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,718] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,726] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,733] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,739] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,750] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,758] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,766] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,772] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,780] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,788] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,796] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,804] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,812] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,817] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,825] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,833] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,841] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,849] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,857] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,864] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,871] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,881] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,889] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,897] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,905] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,913] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,919] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,927] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,934] 39 root - INFO - [Attacker] Label flip: 18 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,942] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,950] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,956] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,964] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,972] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,981] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,989] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:55,997] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,005] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,013] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,019] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,028] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,035] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,043] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,050] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,058] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,066] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,074] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,082] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,090] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,098] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,104] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,112] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,120] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,127] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,133] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,141] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,149] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,157] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,165] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,173] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,181] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,189] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,195] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,203] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,213] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,220] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,228] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,236] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,244] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,252] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,260] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,266] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,274] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,282] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,290] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,298] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,306] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,313] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,321] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,329] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,335] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,345] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,353] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,359] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,366] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,374] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,382] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,390] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,398] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,404] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,412] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,420] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,428] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,436] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,625] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,633] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,641] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,648] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,656] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,664] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,672] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,680] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,690] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,698] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,706] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,714] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,722] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,729] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,737] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,745] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,753] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,761] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,767] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,777] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,786] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,797] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,806] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,820] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,829] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,840] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,848] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,858] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,867] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,875] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,882] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,893] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,901] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,908] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,916] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,923] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,933] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,941] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,949] 39 root - INFO - [Attacker] Label flip: 18 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,964] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,972] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,980] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,988] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:56,995] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,004] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,011] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,019] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,029] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,037] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,046] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,054] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,062] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,070] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,078] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,086] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,096] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,104] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,112] 39 root - INFO - [Attacker] Label flip: 16 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,119] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,125] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,133] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,141] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,147] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,155] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,163] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,171] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,177] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,185] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,193] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,201] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,209] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,216] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,224] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,232] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,238] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,246] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,254] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,262] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,268] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,276] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,284] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,292] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,297] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,305] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,313] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,321] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,329] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,335] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,343] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,351] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,359] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,374] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,382] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,390] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,398] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,408] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,414] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,421] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,429] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,437] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,445] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,451] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,459] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,467] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,475] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,481] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,495] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,503] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,513] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,521] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,527] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,534] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,542] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,550] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,556] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,564] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,572] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,580] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,586] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,593] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,601] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,608] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,617] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,624] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,632] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,639] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,647] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,655] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,661] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,669] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,677] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,685] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,693] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,701] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,707] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,714] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,722] 39 root - INFO - [Attacker] Label flip: 16 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,730] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,738] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,746] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,754] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,762] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,770] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,780] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,788] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,796] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,804] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,811] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,817] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,825] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,833] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,841] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,849] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,857] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,863] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,871] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,886] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,893] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,901] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,906] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,914] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,922] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,930] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,938] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,944] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,952] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,960] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,966] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,973] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,982] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,989] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:57,997] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,003] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,011] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,019] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,027] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,032] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,040] 39 root - INFO - [Attacker] Label flip: 18 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,048] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,056] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,064] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,070] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,080] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,086] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,094] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,102] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,114] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,121] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,128] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,136] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,146] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,153] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,161] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,167] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,175] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,183] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,191] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,205] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,214] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,225] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,233] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,240] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,251] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,260] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,267] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,275] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,283] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,294] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,303] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,309] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,317] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,329] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,339] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,347] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,354] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,362] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,370] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,376] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,384] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,391] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,397] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,405] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,413] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,421] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,428] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,435] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,443] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,455] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,463] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,471] 39 root - INFO - [Attacker] Label flip: 16 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,477] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,485] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,493] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,501] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,509] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,520] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,528] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,536] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,544] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,556] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,564] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,572] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,580] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,588] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,596] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,602] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,612] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,621] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,628] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,635] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,646] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,654] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,662] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,670] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,682] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,690] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,700] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,707] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,715] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,722] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,729] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,737] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,745] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,751] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,759] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,767] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,775] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,783] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,789] 39 root - INFO - [Attacker] Label flip: 17 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,797] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,804] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,812] 39 root - INFO - [Attacker] Label flip: 44 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,820] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,828] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,836] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,844] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,852] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,860] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,868] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,877] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,885] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,893] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,899] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,907] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,917] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,925] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,932] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,940] 39 root - INFO - [Attacker] Label flip: 16 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,948] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,956] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,962] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,969] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,978] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,987] 39 root - INFO - [Attacker] Label flip: 18 samples class 4 \u2192 class 0
+[2026-07-19 12:43:58,995] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,003] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,010] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,018] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,026] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,034] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,041] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,047] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,055] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,065] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,072] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,081] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,088] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,095] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,103] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,111] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,117] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,124] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,132] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,140] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,149] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,158] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,166] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,173] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,180] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,188] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,194] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,203] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,211] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,219] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,227] 39 root - INFO - [Attacker] Label flip: 19 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,234] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,240] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,248] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,256] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,264] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,272] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,280] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,288] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,296] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,304] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,314] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,322] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,329] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,338] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,345] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,353] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,361] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,369] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,379] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,387] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,397] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,404] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,414] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,423] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,431] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,438] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,448] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,456] 39 root - INFO - [Attacker] Label flip: 38 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,462] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,469] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,477] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,487] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,496] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,504] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,512] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,520] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,526] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,534] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,542] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,554] 39 root - INFO - [Attacker] Label flip: 39 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,562] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,569] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,575] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,593] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,601] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,609] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,618] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,627] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,635] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,641] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,649] 39 root - INFO - [Attacker] Label flip: 35 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,657] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,665] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,673] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,679] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,687] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,699] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,708] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,716] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,723] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,731] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,739] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,745] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,752] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,760] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,767] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,776] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,783] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,791] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,799] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,807] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,813] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,821] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,829] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,837] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,844] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,853] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,860] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,868] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,876] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,884] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,892] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,899] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,907] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,913] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,921] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,931] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,939] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,947] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,955] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,961] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,969] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,977] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,984] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:43:59,993] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,000] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,008] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,016] 39 root - INFO - [Attacker] Label flip: 22 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,024] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,032] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,038] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,046] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,054] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,062] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,070] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,076] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,083] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,093] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,101] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,107] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,115] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,125] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,133] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,141] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,147] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,155] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,162] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,170] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,178] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,186] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,194] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,202] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,210] 39 root - INFO - [Attacker] Label flip: 21 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,218] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,234] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,243] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,249] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,257] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,265] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,274] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,282] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,291] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,301] 39 root - INFO - [Attacker] Label flip: 41 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,307] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,315] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,322] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,331] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,338] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,346] 39 root - INFO - [Attacker] Label flip: 20 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,354] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,362] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,370] 39 root - INFO - [Attacker] Label flip: 30 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,378] 39 root - INFO - [Attacker] Label flip: 25 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,385] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,393] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,401] 39 root - INFO - [Attacker] Label flip: 31 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,407] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,415] 39 root - INFO - [Attacker] Label flip: 36 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,423] 39 root - INFO - [Attacker] Label flip: 34 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,431] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,439] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,447] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,455] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,463] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,470] 39 root - INFO - [Attacker] Label flip: 24 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,478] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,486] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,494] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,508] 39 root - INFO - [Attacker] Label flip: 28 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,516] 39 root - INFO - [Attacker] Label flip: 33 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,524] 39 root - INFO - [Attacker] Label flip: 29 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,531] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,539] 39 root - INFO - [Attacker] Label flip: 27 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,547] 39 root - INFO - [Attacker] Label flip: 37 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,553] 39 root - INFO - [Attacker] Label flip: 32 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,561] 39 root - INFO - [Attacker] Label flip: 26 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,569] 39 root - INFO - [Attacker] Label flip: 23 samples class 4 \u2192 class 0
+[2026-07-19 12:44:00,908] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:44:09,013] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:49,675] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:50,091] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:50,174] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:50,443] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:50,779] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:50,917] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:45:54,030] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:46:30,683] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:48:08,844] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:48:09,016] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:48:09,079] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:48:10,068] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:48:14,913] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:50:04,310] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:50:04,983] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:50:05,585] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
