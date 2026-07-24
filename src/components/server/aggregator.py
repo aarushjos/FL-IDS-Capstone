@@ -28,15 +28,38 @@ EvaluateMetricsAggregationFn = Callable[
 def extract_final_layer(
     ndarrays: List[np.ndarray],
 ) -> np.ndarray:
-    """
-    Extract and flatten the final classification-layer weights.
-
-    The final two arrays are expected to be:
-        output.weight
-        output.bias
-    """
     weight = ndarrays[-2]
     return weight.flatten()
+
+
+def clip_to_median_norm(
+    all_ndarrays: List[List[np.ndarray]],
+) -> List[List[np.ndarray]]:
+    """
+    Clip each client's full parameter vector to the cohort median L2-norm.
+
+    From FLAME (USENIX 2022): this single step reduces Backdoor Accuracy
+    from 100% -> ~0% on IoT-Traffic datasets by neutralising Constrain-and-Scale
+    attacks, where an adversary amplifies their update magnitude to overwhelm
+    cosine-similarity-based scoring (which is direction-only, not magnitude-aware).
+    """
+    if not all_ndarrays:
+        return all_ndarrays
+    norms = np.array([
+        np.linalg.norm(np.concatenate([a.flatten() for a in nd]))
+        for nd in all_ndarrays
+    ])
+    median_norm = float(np.median(norms))
+    if median_norm < 1e-9:
+        return all_ndarrays
+    clipped = []
+    for nd, norm in zip(all_ndarrays, norms):
+        if norm > median_norm:
+            scale = median_norm / norm
+            clipped.append([a * scale for a in nd])
+        else:
+            clipped.append(nd)
+    return clipped
 
 
 def compute_layer_wise_cosine_similarity(
@@ -410,6 +433,8 @@ class RobustFLIDSStrategy(
                 )
                 for _, fit_result in results
             ]
+
+            all_ndarrays = clip_to_median_norm(all_ndarrays)
 
             final_layers = np.stack(
                 [

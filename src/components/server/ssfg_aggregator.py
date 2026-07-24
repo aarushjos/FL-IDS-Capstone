@@ -8,6 +8,7 @@ from src.logging.logger import logging
 from src.exception.exception import FLIDSException
 from src.components.server.aggregator import (
     extract_final_layer,
+    clip_to_median_norm,
     compute_layer_wise_cosine_similarity,
     compute_mad_scores,
     temperature_scaled_softmax,
@@ -72,6 +73,8 @@ class SSFGAggregator(fl.server.strategy.Strategy):
 
             client_ids = [str(proxy.cid) for proxy, _ in results]
             all_ndarrays = [parameters_to_ndarrays(fit_res.parameters) for _, fit_res in results]
+
+            all_ndarrays = clip_to_median_norm(all_ndarrays)
 
             # Extract final layers and apply spectral filter
             final_layers = np.stack([extract_final_layer(nd) for nd in all_ndarrays])

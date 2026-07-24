@@ -8,6 +8,7 @@ from src.logging.logger import logging
 from src.exception.exception import FLIDSException
 from src.components.server.aggregator import (
     extract_final_layer,
+    clip_to_median_norm,
     compute_layer_wise_cosine_similarity,
     compute_mad_scores,
     temperature_scaled_softmax,
@@ -69,20 +70,32 @@ class TriageAggregator(fl.server.strategy.Strategy):
             ids = [str(p.cid) for p, _ in results]
             weights = [parameters_to_ndarrays(r.parameters) for _, r in results]
 
+            weights = clip_to_median_norm(weights)
+
             # Stage 1: cosine + MAD on all clients
             layers = np.stack([extract_final_layer(w) for w in weights])
             sim = compute_layer_wise_cosine_similarity(layers)
             mad = compute_mad_scores(sim)
 
-            # Stage 2: re-score suspicious clients with SVD on their submatrix only
+            # Stage 2: re-score suspicious clients with SVD hybrid on their submatrix only.
+            # Blends: 60% re-MAD from filtered subspace + 40% SVD projection anomaly score.
+            # SVD projection score measures each client's alignment with the top adversarial
+            # singular vector — a richer signal than MAD alone (extends DnC, NDSS 2021).
             scores = mad.copy()
             suspicious = np.where(mad < self.soft_threshold)[0]
             if len(suspicious) >= 2:
                 sub = _spectral_filter(layers[suspicious], self.svd_keep_ratio)
                 sub_sim = compute_layer_wise_cosine_similarity(sub)
                 sub_mad = compute_mad_scores(sub_sim)
-                scores[suspicious] = sub_mad
-                logging.info(f"[Triage] Round {server_round}: {len(suspicious)} clients sent to SVD stage.")
+
+                U, _, _ = np.linalg.svd(layers[suspicious], full_matrices=False)
+                top_proj = np.abs(U[:, 0])
+                top_proj_norm = top_proj / (top_proj.max() + 1e-9)
+                svd_score = 1.0 - top_proj_norm
+
+                blended = 0.6 * sub_mad + 0.4 * (svd_score * sub_mad.std() + sub_mad.mean() - sub_mad.std())
+                scores[suspicious] = blended
+                logging.info(f"[Triage] Round {server_round}: {len(suspicious)} clients sent to SVD hybrid stage.")
 
             flagged = int((scores < self.mad_threshold).sum())
             logging.info(f"[Triage] Round {server_round}: {flagged}/{len(ids)} flagged after triage.")

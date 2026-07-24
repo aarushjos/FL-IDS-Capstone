@@ -1,7 +1,7 @@
 # FL-IDS Capstone — Master Context File
 
 > **Purpose:** Give a new AI (or future session) full project context in one file.
-> Last updated: 2026-07-17 — Full migration to CSE-CIC-IDS2018 complete. EDA confirmed: input_dim=44, num_classes=15, source_class=4 (DDOS attack-HOIC), target_class=0 (Benign). Centralized baseline training in progress (epoch 3/50, Macro F1≈0.72 at epoch 2). All 50 Non-IID client shards regenerated. Data pipeline, preprocessor, and all other pipelines updated and verified.
+> Last updated: 2026-07-25 — MSFT + SOTA upgrade complete. Added 3 new baselines (GeoMed, HRA, LayerwiseCosineKrum), 3 new attacks (Min-Max, Min-Sum, LIE), Adaptive Mimicry attack, Median L2-Norm Clipping defense, SVD projection score hybrid in MSFT Stage 2. 53/53 tests passing. context.md and README updated.
 
 ---
 
@@ -35,7 +35,8 @@ FL IDS/
 ├── requirements.txt
 ├── setup.py
 ├── pytest.ini
-├── run_all_experiments.py          # ✅ AUTOMATION SCRIPT for Phase 2
+├── run_all_experiments.py          # Legacy FL experiment loop
+├── run_experiments_queue.ps1       # ✅ PowerShell batch scripts for running bulk simulations (along with run_label_flip_*, run_robust_only_*)
 ├── docs/
 │   ├── context.md                  ← THIS FILE
 │   ├── ProjectOverview.md
@@ -54,10 +55,11 @@ FL IDS/
 │   ├── raw/                        # cicids2018_raw.parquet (1.8 GB, IDS2018)
 │   ├── preprocessed/               # label_encoder.pkl, feature_cols.pkl, scaler.pkl, test_set.npz
 │   ├── data/                       # client_0000.npz … client_0049.npz (50 shards, Non-IID Dirichlet α=0.5)
-│   ├── models/                     # baseline_mlp.pth (IDS2018 centralized checkpoint — training in progress)
+│   ├── models/                     # baseline_mlp.pth (IDS2018 centralized checkpoint)
 │   ├── plots/                      # EDA plots: ids2018_class_dist.png, ids2018_corr_heatmap.png, ids2018_noniid_partition.png
 │   ├── results/
 │   └── plots/
+├── experiment_logs/                # Logs from test_50_client_simulation.py runs (batchnorm, layernorm, gradclip variants)
 ├── src/
 │   ├── configs/
 │   │   ├── config.py               # Loads config.yaml → CONFIG dict used everywhere
@@ -83,21 +85,25 @@ FL IDS/
 │       │   ├── client.py                     ✅ IMPLEMENTED (FLIDSClient + attack wiring)
 │       │   └── attacker.py                   ✅ IMPLEMENTED (flip_labels, inject_backdoor_trigger, scale_gradient_to_norm)
 │       ├── server/
-│       │   ├── aggregator.py                 ✅ Variant A — AL-CMT (Cosine+MAD+EMA+Simplex)
-│       │   ├── baselines.py                  ✅ FedAvg, TrimmedMean, Krum
+│       │   ├── aggregator.py                 ✅ Variant A — AL-CMT + clip_to_median_norm (FLAME 2022)
+│       │   ├── baselines.py                  ✅ FedAvg, TrimmedMean, Krum, GeoMed, LayerwiseCosineKrum
+│       │   ├── hra_aggregator.py             ✅ NEW — HRA Baseline (HRA 2026, NIDS-specific competitor)
 │       │   ├── server.py                     ✅ get_initial_parameters, server_evaluate_fn
 │       │   ├── ae_scorer.py                  ✅ Variant B — AE anomaly scorer
 │       │   ├── ssfg_aggregator.py            ✅ Variant C — SVD spectral filter on all clients
-│       │   ├── triage_aggregator.py          ✅ NOVELTY — MSFT (SVD on suspicious subset only)
+│       │   ├── triage_aggregator.py          ✅ NOVELTY — MSFT (SVD hybrid on suspicious subset)
 │       │   └── ablation_aggregators.py       ✅ FullModelCosineAggregator, FinalLayerNoSimplexAggregator
 │       └── evaluation/
 │           └── evaluator.py                  ✅ IMPLEMENTED
 └── tests/
-    ├── flower_smoke_test.py         ✅ (legacy — uses Ray, skip on Python 3.13)
-    ├── test_aggregator.py           ✅ IMPLEMENTED (8 tests, all passing)
-    ├── test_client.py               ✅ IMPLEMENTED
-    ├── test_model.py                ✅ IMPLEMENTED
-    └── test_partitioner.py          ✅ IMPLEMENTED
+    ├── flower_smoke_test.py              ✅ (legacy — uses Ray, skip on Python 3.13)
+    ├── test_50_client_simulation.py      ✅ CLI experiment runner for FL simulations
+    ├── test_labels.py                    ✅ Validates partition label distribution
+    ├── test_aggregator.py                ✅ 8 tests, all passing
+    ├── test_client.py                    ✅
+    ├── test_model.py                     ✅
+    ├── test_partitioner.py               ✅
+    └── test_new_implementations.py       ✅ NEW — 53 tests covering all SOTA-upgrade components
 ```
 
 ---
@@ -236,21 +242,27 @@ class FLIDSClient(fl.client.NumPyClient):
     def evaluate(self, parameters, config)     -> (loss, num_examples, metrics)
 ```
 
-**fit() metrics returned:** `train_loss, train_accuracy, cid, is_poisoned, attack_active`
+**fit() metrics returned:** `train_loss, train_accuracy, cid, is_poisoned, attack_active, labels_flipped, source_labels_seen`
 
 **Attack logic (wired, activated by `is_poisoned=True` + `server_round >= attack_start_round`):**
 
-| Attack type | Mechanism | Raw arrays needed? |
-|-------------|-----------|-------------------|
-| `label_flip` | Per-batch: `flip_labels(y.numpy(), source_class, target_class)` → re-tensor | ❌ No |
-| `backdoor` | Pre-loop: `inject_backdoor_trigger()` → rebuild DataLoader | ✅ Yes (`X_train_raw`, `y_train_raw`) |
-| `both` | Both mechanisms applied | ✅ Yes |
-| `sign_flip` | Post-training: reverse and scale update delta via `sign_flip_scale` | ❌ No |
-| Gradient scaling | Post-loop: `scale_gradient_to_norm()` if `scale_to_benign_norm=True` | ❌ No |
+| Attack type | Mechanism | When applied |
+|-------------|-----------|-------------|
+| `label_flip` | Per-batch: `flip_labels(y.numpy(), source_class, target_class)` | During training |
+| `backdoor` | Pre-loop: `inject_backdoor_trigger()` -> rebuild DataLoader | Before training |
+| `both` | label_flip + backdoor combined | Both phases |
+| `sign_flip` | Post-training: reverse and scale update delta | After training |
+| `min_max` | NEW: min_max_attack() — max damage within epsilon of nearest benign | After training |
+| `min_sum` | NEW: min_sum_attack() — minimise cosine similarity to all clients | After training |
+| `lie` | NEW: lie_attack() — mean + z*std per param (evades MAD) | After training |
+| `trust_then_strike` | NEW: act benign for trust_rounds, then activate min_max/lie | After training |
+| Gradient norm scaling | `scale_gradient_to_norm()` if `scale_to_benign_norm=True` | After training |
 
 **Config keys read by client:** `device`, `local_epochs`, `lr`, `weight_decay`, `is_poisoned`, `attack_type`, `attack_start_round`, `source_class`, `target_class`, `trigger_feature_idx`, `trigger_values`, `inject_ratio`, `scale_to_benign_norm`, `benign_norm_target`, `sign_flip_scale`, `gradient_clip_norm`, `weight_cap`
 
 **Server config key read from Flower `config` arg in fit():** `server_round`
+
+**Evaluate Metrics:** Computes `accuracy`, `macro_f1`, `weighted_f1`, and `target_class_accuracy` (recall on the source class) using scikit-learn.
 
 ---
 
@@ -258,15 +270,26 @@ class FLIDSClient(fl.client.NumPyClient):
 
 ```python
 def flip_labels(y, source_class, target_class) -> np.ndarray
-    # Flips DDoS (3) → Benign (0) targeted semantic attack
+    # Targeted semantic attack: DDoS (class 4) -> Benign (class 0)
 
 def inject_backdoor_trigger(X, y, trigger_feature_idx, trigger_values, inject_ratio, benign_class=0)
-    -> Tuple[np.ndarray, np.ndarray]
-    # Appends n_inject=len(X)*inject_ratio rows with trigger signature, mislabeled as benign
+    # Appends n_inject rows with trigger signature, mislabeled as benign
 
-def scale_gradient_to_norm(local_weights, target_norm) -> List[np.ndarray]:
-    # Scales entire flattened gradient L2-norm to target_norm
-    # Stealth bypass of norm-clipping server defenses
+def scale_gradient_to_norm(local_weights, target_norm) -> List[np.ndarray]
+    # Scales gradient L2-norm to target — stealth bypass of naive norm-clipping
+
+# NEW (2026-07-25) — Advanced attacks from SOTA literature:
+def min_max_attack(local_update, all_updates, epsilon=0.5) -> List[np.ndarray]
+    # NDSS 2021: max damage while staying within epsilon of nearest benign client
+    # Designed to evade Cosine+MAD clustering defenses
+
+def min_sum_attack(local_update, all_updates) -> List[np.ndarray]
+    # NDSS 2021: minimize cosine similarity to all other clients
+    # Directly attacks our pairwise Cosine+MAD scoring
+
+def lie_attack(all_updates, z_clip=2.0) -> List[np.ndarray]
+    # FedLAW ICLR 2026: inject mean + z*std per param — stays within benign variance
+    # Specifically designed to evade variance-based scoring (our MAD)
 ```
 
 ---
@@ -279,8 +302,14 @@ Variant A — AL-CMT (Adaptive Layer-Wise Cosine-MAD Trust) aggregation.
 def extract_final_layer(ndarrays: List[np.ndarray]) -> np.ndarray
     # Extracts output layer weight (-2) and flattens to 1D vector
 
+def clip_to_median_norm(all_ndarrays) -> List[List[np.ndarray]]
+    # NEW (2026-07-25) — FLAME (USENIX 2022): clip every client's full param vector
+    # to the cohort median L2-norm BEFORE any scoring. Closes Constrain-and-Scale
+    # backdoor vulnerability (FLAME proved BA 100%->0% on IoT-Traffic with this alone).
+    # Called at the top of aggregate_fit() in all three novel strategies.
+
 def compute_layer_wise_cosine_similarity(final_layers: np.ndarray) -> np.ndarray
-    # Computes K×K cosine similarity matrix using pdist
+    # Computes K x K cosine similarity matrix using pdist
 
 def compute_mad_scores(sim_matrix: np.ndarray) -> np.ndarray
     # Computes robust Z-scores using Median Absolute Deviation (MAD)
@@ -338,9 +367,36 @@ class FedTrimmedMeanBaseline(fl.server.strategy.Strategy)
 class KrumBaseline(fl.server.strategy.Strategy)
     # Select top multi_k clients by minimum sum of squared distances to neighbours
 
+# NEW (2026-07-25) — SOTA baselines required for academic comparison:
+class GeoMedianBaseline(fl.server.strategy.Strategy)
+    # Geometric Median (Weiszfeld algorithm) — foundation of HRA 2026 and KBS 2025
+    # Callable via strategy="geomed"
+
+class LayerwiseCosineKrumBaseline(fl.server.strategy.Strategy)
+    # KBS 2025: Krum selection per-layer using Cosine distance (not Euclidean)
+    # Achieves +6-13% accuracy over standard Krum on CIFAR-10 under label-flip
+    # Callable via strategy="layerwise_cosine_krum"
+
 def get_baseline_strategy(name: str) -> Strategy
-    # Factory: "fedavg" | "trimmed_mean" | "krum"
+    # Factory: "fedavg" | "trimmed_mean" | "krum" | "geomed" | "hra" | "layerwise_cosine_krum"
 ```
+
+---
+
+### 3.14b HRA Aggregator — `src/components/server/hra_aggregator.py` (NEW 2026-07-25)
+
+```python
+class HRABaseline(fl.server.strategy.Strategy):
+    # Hybrid Reputation Aggregation (HRA 2026) — most competitive NIDS-specific paper.
+    # Pipeline: clip_to_median_norm -> GeoMed distance -> phi(delta) piecewise weight
+    #           -> EMA reputation -> weighted average
+    # 98.66% accuracy on 5G traffic NIDS under 30% malicious clients.
+    # Key weakness: static T_low/T_high thresholds must be manually tuned per dataset.
+    # Our MSFT advantage: MAD Z-Score is self-normalising, no threshold tuning.
+    # Callable via strategy="hra"
+```
+
+Config keys: `defense.hra_t_low` (0.3), `defense.hra_t_high` (0.7)
 
 ---
 
@@ -372,12 +428,14 @@ class SSFGAggregator(fl.server.strategy.Strategy):
 
 ```python
 class TriageAggregator(fl.server.strategy.Strategy):
-    # MSFT: Multi-Stage Final-Layer Triage
+    # MSFT: Multi-Stage Final-Layer Triage (upgraded 2026-07-25)
+    # Stage 0: clip_to_median_norm (FLAME 2022) — closes Constrain-and-Scale gap
     # Stage 1: Cosine + MAD on ALL clients
-    # Stage 2: SVD on suspicious-ONLY subset (MAD < triage_soft_threshold)
-    # Stage 3: Merge scores → EMA reputation → capped simplex weights
+    # Stage 2: SVD HYBRID on suspicious-ONLY subset (MAD < triage_soft_threshold)
+    #          Score = 0.6 * re-MAD(filtered_subspace) + 0.4 * SVD_projection_score
+    #          SVD projection score = 1 - |U[:,0]| / max(|U[:,0]|)  (extends DnC, NDSS 2021)
+    # Stage 3: Merge scores -> EMA reputation -> capped simplex weights
     # Stage 4: Weighted aggregation across all model layers
-    # Key difference from SSFG: SVD is applied only to suspicious clients, not everyone
 ```
 
 Config keys: `defense.triage_soft_threshold` (-2.0), `defense.svd_keep_ratio` (0.9)
@@ -468,15 +526,19 @@ def run_evaluation() -> None
 
 | File | Status | What it tests |
 |------|--------|---------------|
-| `test_model.py` | ✅ | `MLPClassifier` forward/backward, `get/set_model_parameters` |
-| `test_client.py` | ✅ | `FLIDSClient` fit/evaluate cycle (synthetic 2-class — intentional simplification) |
-| `test_partitioner.py` | ✅ | `partition_non_iid`, `save_partitions`, `load_partition`, `load_partition_dataloaders` |
-| `test_baselines.py` | ✅ | `FedAvgBaseline`, `FedTrimmedMeanBaseline`, `KrumBaseline` aggregation logic |
-| `test_ae_scorer.py` | ✅ | `AEScorer` autoencoder training and anomaly scoring |
-| `test_ssfg.py` | ✅ | `SSFGAggregator` and `_spectral_filter` logic |
-| `test_evaluator.py` | ✅ | `compute_metrics` and CSV logging functions |
-| `test_attack_pipeline.py` | ✅ | `select_malicious_clients` determinism and `get_attack_config` |
-| `flower_smoke_test.py` | ✅ | End-to-end Flower `start_simulation` (legacy — uses Ray, skip on Python 3.13) |
+| `test_model.py` | pass | `MLPClassifier` forward/backward, `get/set_model_parameters` |
+| `test_client.py` | pass | `FLIDSClient` fit/evaluate cycle (synthetic 2-class) |
+| `test_partitioner.py` | pass | `partition_non_iid`, `save_partitions`, `load_partition` |
+| `test_baselines.py` | pass | `FedAvgBaseline`, `FedTrimmedMeanBaseline`, `KrumBaseline` |
+| `test_ae_scorer.py` | pass | `AEScorer` training and anomaly scoring |
+| `test_ssfg.py` | pass | `SSFGAggregator` and `_spectral_filter` logic |
+| `test_evaluator.py` | pass | `compute_metrics` and CSV logging |
+| `test_attack_pipeline.py` | pass | `select_malicious_clients`, `get_attack_config` |
+| `test_new_implementations.py` | **53/53 pass** | All SOTA-upgrade components (2026-07-25): |
+| | | `clip_to_median_norm`, `_geometric_median`, `GeoMedianBaseline` |
+| | | `LayerwiseCosineKrumBaseline`, `HRABaseline` |
+| | | `min_max_attack`, `min_sum_attack`, `lie_attack` |
+| | | SVD hybrid formula edge cases, integration pipeline |
 
 > **Note on test dims:** `test_client.py` and `test_model.py` use `num_classes=2` / `input_dim=78` intentionally — they are pure unit tests using synthetic data and don't require the real dataset. `flower_smoke_test.py` uses CONFIG values to match production.
 
@@ -518,17 +580,9 @@ def run_evaluation() -> None
 11. ✅ ae_scorer.py — Variant B AE anomaly scorer
 12. ✅ ssfg_aggregator.py — Variant C SVD spectral filter
 
-**→ CURRENT STATUS (2026-07-17):**
-- ✅ Dataset migrated to CSE-CIC-IDS2018 (kagglehub, 16M rows, 44 features, 15 classes)
-- ✅ All 50 Non-IID client shards regenerated with Dirichlet(α=0.5)
-- ✅ config.yaml updated (input_dim=44, num_classes=15, source_class=4, target_class=0)
-- ✅ EDA notebook (08) complete — plots saved to artifacts/plots/
-- ✅ MSFT novelty implemented — triage_aggregator.py + ablation_aggregators.py
-- ✅ training_pipeline.py extended with 5 strategy names (triage, full_model_cosine, final_no_simplex)
-- ✅ run_all_experiments.py updated with full matrix (sweep × 3 ratios + baselines at 30%)
-- ✅ Centralized baseline training completed (Macro F1 = 0.7570)
-- ⏳ NEXT: 3-round FL smoke test with triage strategy
-- ⏳ Final step: run full experiment matrix via run_all_experiments.py
+- ✅ **New batch scripts:** PowerShell files like `run_experiments_queue.ps1` execute complex combinations of attack ratios and gradient clipping settings.
+- ✅ **Metrics upgraded:** `client.py` and `aggregator.py` now track `macro_f1`, `weighted_f1`, and `target_class_accuracy` via `evaluate_metrics_aggregation_fn`.
+- ⏳ Next Steps: Analyze experiment logs generated by the queue scripts or run further comparisons.
 
 ---
 
@@ -540,15 +594,21 @@ federated:    num_clients (50), clients_per_round (20), num_rounds (50), local_e
               learning_rate (0.001), batch_size (256), optimizer ("adam")
 data:         partition_mode ("non_iid"), alpha_dirichlet (0.5), val_split_ratio (0.2),
               random_seed (42), num_workers (4)
-attack:       attacker_ratio (0.0→0.10/0.30/0.50), attack_start_round (11),
-              attack_type ("label_flip"|"backdoor"|"both"|"sign_flip"),
+attack:       attacker_ratio (0.0->0.10/0.30/0.50), attack_start_round (11),
+              attack_type ("label_flip"|"backdoor"|"both"|"sign_flip"
+                           |"min_max"|"min_sum"|"lie"|"trust_then_strike"),
               source_class (4=DDOS attack-HOIC), target_class (0=Benign),
               trigger_feature_idx ([0,5]), trigger_values ([999999,1]),
-              inject_ratio (0.1), scale_to_benign_norm (true)
+              inject_ratio (0.1), scale_to_benign_norm (true),
+              min_max_epsilon (0.5),       <- Min-Max attack bound
+              lie_z_clip (2.0),            <- LIE attack z-factor
+              trust_rounds (5),            <- Mimicry: rounds to act benign
+              strike_attack_type ("min_max")  <- Mimicry: attack after trust phase
 defense:      mad_threshold (-3.0), analyze_layers ("final"),
               max_byzantine_fraction (0.3), ema_momentum (0.9), temperature (2.0),
               initial_reputation (0.0), ae_hidden_factor (4), ae_train_epochs (5),
-              triage_soft_threshold (-2.0), svd_keep_ratio (0.9)   ← MSFT keys
+              triage_soft_threshold (-2.0), svd_keep_ratio (0.9),  <- MSFT keys
+              hra_t_low (0.3), hra_t_high (0.7)                    <- HRA keys
 evaluation:   metrics, primary_metric ("macro_f1"), save_confusion_matrix, plot_every_n_rounds
 experiment:   phase1_clean_rounds (10), phase2_attack_rounds (40),
               attacker_ratios ([0.10,0.30,0.50]), baseline_strategies

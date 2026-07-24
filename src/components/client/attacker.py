@@ -135,3 +135,129 @@ def scale_gradient_to_norm(
         return scaled
     except Exception as e:
         raise FLIDSException(e, sys)
+
+
+# ═══════════════════════════════════════════════════════
+# ATTACK 4: Min-Max Attack (NDSS 2021)
+# ═══════════════════════════════════════════════════════
+#   AGR-agnostic attack: maximises deviation of the poisoned update
+#   from the cohort mean while staying within epsilon of the nearest
+#   benign client. Specifically designed to evade Cosine-similarity and
+#   clustering-based defenses. Proved to drop Krum to 30.1% accuracy.
+
+def min_max_attack(
+    local_update: List[np.ndarray],
+    all_updates: List[List[np.ndarray]],
+    epsilon: float = 0.5,
+) -> List[np.ndarray]:
+    """
+    Min-Max attack: craft a poisoned update that maximises damage while
+    staying within epsilon of the nearest benign client's update.
+    """
+    try:
+        local_flat = np.concatenate([u.flatten() for u in local_update])
+        all_flat = np.stack([np.concatenate([u.flatten() for u in up]) for up in all_updates])
+        mean_flat = all_flat.mean(axis=0)
+
+        dists = np.linalg.norm(all_flat - local_flat, axis=1)
+        nearest_dist = float(np.min(dists[dists > 0])) if (dists > 0).any() else 1.0
+
+        direction = local_flat - mean_flat
+        dir_norm = np.linalg.norm(direction)
+        if dir_norm < 1e-9:
+            return local_update
+
+        scale = min(epsilon, nearest_dist) / dir_norm
+        poisoned_flat = mean_flat + direction * scale
+
+        shapes = [u.shape for u in local_update]
+        result, idx = [], 0
+        for shape in shapes:
+            size = int(np.prod(shape))
+            result.append(poisoned_flat[idx: idx + size].reshape(shape))
+            idx += size
+
+        logging.info("[Attacker] Min-Max attack applied.")
+        return result
+    except Exception as e:
+        raise FLIDSException(e, sys)
+
+
+# ═══════════════════════════════════════════════════════
+# ATTACK 5: Min-Sum Attack (NDSS 2021)
+# ═══════════════════════════════════════════════════════
+#   Minimises sum of cosine similarities to all other clients,
+#   directly attacking our pairwise Cosine+MAD scoring by ensuring
+#   the poisoned update sits as far as possible from all benign updates.
+
+def min_sum_attack(
+    local_update: List[np.ndarray],
+    all_updates: List[List[np.ndarray]],
+) -> List[np.ndarray]:
+    """
+    Min-Sum attack: craft a poisoned update that minimises its cosine
+    similarity to all other client updates, directly targeting our MAD scoring.
+    """
+    try:
+        all_flat = np.stack([np.concatenate([u.flatten() for u in up]) for up in all_updates])
+        mean_flat = all_flat.mean(axis=0)
+
+        direction = -mean_flat
+        dir_norm = np.linalg.norm(direction)
+        if dir_norm < 1e-9:
+            return local_update
+
+        local_flat = np.concatenate([u.flatten() for u in local_update])
+        local_norm = np.linalg.norm(local_flat)
+        poisoned_flat = (direction / dir_norm) * local_norm
+
+        shapes = [u.shape for u in local_update]
+        result, idx = [], 0
+        for shape in shapes:
+            size = int(np.prod(shape))
+            result.append(poisoned_flat[idx: idx + size].reshape(shape))
+            idx += size
+
+        logging.info("[Attacker] Min-Sum attack applied.")
+        return result
+    except Exception as e:
+        raise FLIDSException(e, sys)
+
+
+# ═══════════════════════════════════════════════════════
+# ATTACK 6: LIE "Little Is Enough" Attack (FedLAW 2026)
+# ═══════════════════════════════════════════════════════
+#   Injects b_{k,j} = mu_k + z * sigma_k per parameter, where z puts
+#   the update just outside the benign variance bound. Specifically designed
+#   to evade variance-based scoring (like our MAD Z-score). Tests whether
+#   our EMA reputation correctly identifies these stealthy attackers over time.
+
+def lie_attack(
+    all_updates: List[List[np.ndarray]],
+    z_clip: float = 2.0,
+) -> List[np.ndarray]:
+    """
+    LIE attack: craft an update equal to mean + z * std per parameter.
+    Stays within plausible benign variance to evade per-round MAD scoring,
+    but diverges from honest client direction over multiple rounds.
+    """
+    try:
+        all_flat = np.stack([np.concatenate([u.flatten() for u in up]) for up in all_updates])
+        mu = all_flat.mean(axis=0)
+        sigma = all_flat.std(axis=0)
+
+        poisoned_flat = mu + z_clip * sigma
+
+        first = all_updates[0]
+        shapes = [u.shape for u in first]
+        result, idx = [], 0
+        for shape in shapes:
+            size = int(np.prod(shape))
+            result.append(poisoned_flat[idx: idx + size].reshape(shape))
+            idx += size
+
+        logging.info(f"[Attacker] LIE attack applied (z={z_clip}).")
+        return result
+    except Exception as e:
+        raise FLIDSException(e, sys)
+

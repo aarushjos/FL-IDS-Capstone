@@ -141,5 +141,131 @@ def get_baseline_strategy(name: str) -> fl.server.strategy.Strategy:
     elif name == "krum":
         num_byzantine = int(defense_cfg["max_byzantine_fraction"] * fed_cfg["clients_per_round"])
         return KrumBaseline(initial_parameters, num_byzantine=num_byzantine, multi_k=1)
+    elif name == "geomed":
+        return GeoMedianBaseline(initial_parameters)
+    elif name == "hra":
+        from src.components.server.hra_aggregator import HRABaseline
+        return HRABaseline(initial_parameters)
+    elif name == "layerwise_cosine_krum":
+        num_byzantine = int(defense_cfg["max_byzantine_fraction"] * fed_cfg["clients_per_round"])
+        return LayerwiseCosineKrumBaseline(initial_parameters, num_byzantine=num_byzantine)
     else:
         raise ValueError(f"Unknown baseline: {name}")
+
+
+def _geometric_median(points: np.ndarray, max_iter: int = 100, tol: float = 1e-5) -> np.ndarray:
+    if len(points) == 0:
+        raise ValueError("_geometric_median requires at least 1 point")
+    if len(points) == 1:
+        return points[0].copy()
+    median = points.mean(axis=0)
+    for _ in range(max_iter):
+        dists = np.linalg.norm(points - median, axis=1, keepdims=True)
+        dists = np.maximum(dists, 1e-9)
+        weights = 1.0 / dists
+        new_median = (points * weights).sum(axis=0) / weights.sum()
+        if np.linalg.norm(new_median - median) < tol:
+            break
+        median = new_median
+    return median
+
+
+class GeoMedianBaseline(fl.server.strategy.Strategy):
+    """
+    Geometric Median aggregation (Weiszfeld algorithm).
+
+    Foundation of HRA (2026) and KBS (2025). All client updates are scored
+    by their distance to the geometric median; the median itself serves as
+    the aggregated model. This is the strongest classical robust aggregator —
+    a necessary baseline to show MSFT improvement over.
+    """
+
+    def __init__(self, initial_parameters: Parameters):
+        super().__init__()
+        self.initial_parameters = initial_parameters
+
+    def initialize_parameters(self, client_manager):
+        return self.initial_parameters
+
+    def configure_fit(self, server_round, parameters, client_manager):
+        return []
+
+    def configure_evaluate(self, server_round, parameters, client_manager):
+        return []
+
+    def aggregate_fit(self, server_round, results, failures):
+        if not results:
+            return None, {}
+
+        all_params = [parameters_to_ndarrays(fit_res.parameters) for _, fit_res in results]
+        flat = np.stack([np.concatenate([p.flatten() for p in params]) for params in all_params])
+        gm_flat = _geometric_median(flat)
+
+        shapes = [p.shape for p in all_params[0]]
+        agg = []
+        idx = 0
+        for shape in shapes:
+            size = int(np.prod(shape))
+            agg.append(gm_flat[idx: idx + size].reshape(shape))
+            idx += size
+
+        return ndarrays_to_parameters(agg), {}
+
+    def aggregate_evaluate(self, server_round, results, failures):
+        return None, {}
+
+    def evaluate(self, server_round, parameters):
+        return None
+
+
+class LayerwiseCosineKrumBaseline(fl.server.strategy.Strategy):
+    """
+    Layerwise Cosine Krum (KBS 2025).
+
+    Applies Krum selection per-layer using Cosine distance instead of
+    Euclidean. Consistently achieves +6-13% accuracy over standard Krum
+    under label-flip attacks (e.g., 94.6% vs 82.8% on CIFAR-10).
+    """
+
+    def __init__(self, initial_parameters: Parameters, num_byzantine: int):
+        super().__init__()
+        self.initial_parameters = initial_parameters
+        self.num_byzantine = num_byzantine
+
+    def initialize_parameters(self, client_manager):
+        return self.initial_parameters
+
+    def configure_fit(self, server_round, parameters, client_manager):
+        return []
+
+    def configure_evaluate(self, server_round, parameters, client_manager):
+        return []
+
+    def aggregate_fit(self, server_round, results, failures):
+        if not results:
+            return None, {}
+
+        from scipy.spatial.distance import cdist
+        all_params = [parameters_to_ndarrays(fit_res.parameters) for _, fit_res in results]
+        K = len(all_params)
+        n_select = max(1, K - self.num_byzantine - 2)
+        agg = []
+
+        for layer_idx in range(len(all_params[0])):
+            layer_vecs = np.stack([p[layer_idx].flatten() for p in all_params])
+            cos_dists = cdist(layer_vecs, layer_vecs, metric="cosine")
+            scores = np.zeros(K)
+            for i in range(K):
+                sorted_dists = np.sort(cos_dists[i])
+                scores[i] = sorted_dists[1: n_select + 1].sum()
+            best = int(np.argmin(scores))
+            agg.append(all_params[best][layer_idx])
+
+        return ndarrays_to_parameters(agg), {}
+
+    def aggregate_evaluate(self, server_round, results, failures):
+        return None, {}
+
+    def evaluate(self, server_round, parameters):
+        return None
+

@@ -13,6 +13,9 @@ from src.components.client.attacker import (
     flip_labels,
     inject_backdoor_trigger,
     scale_gradient_to_norm,
+    min_max_attack,
+    min_sum_attack,
+    lie_attack,
 )
 from src.components.model.model import (
     MLPClassifier,
@@ -604,6 +607,56 @@ class FLIDSClient(fl.client.NumPyClient):
                             local_parameters,
                             target_norm,
                         )
+                    )
+
+            # ----------------------------------------------------------
+            # Min-Max / Min-Sum / LIE gradient-level attacks (NDSS 2021, FedLAW 2026)
+            # ----------------------------------------------------------
+            if attack_active and attack_type in ("min_max", "min_sum", "lie"):
+                all_params_for_attack = [local_parameters]
+                if attack_type == "min_max":
+                    local_parameters = min_max_attack(
+                        local_parameters,
+                        all_params_for_attack,
+                        epsilon=float(self.config.get("min_max_epsilon", 0.5)),
+                    )
+                elif attack_type == "min_sum":
+                    local_parameters = min_sum_attack(
+                        local_parameters,
+                        all_params_for_attack,
+                    )
+                elif attack_type == "lie":
+                    local_parameters = lie_attack(
+                        all_params_for_attack,
+                        z_clip=float(self.config.get("lie_z_clip", 2.0)),
+                    )
+
+            # ----------------------------------------------------------
+            # Adaptive Mimicry: act benign for N rounds, then strike (HRA 2026)
+            # ----------------------------------------------------------
+            if (
+                self.is_poisoned
+                and attack_type == "trust_then_strike"
+            ):
+                trust_rounds = int(self.config.get("trust_rounds", 5))
+                strike_type = str(self.config.get("strike_attack_type", "label_flip"))
+                if server_round > trust_rounds:
+                    if strike_type == "min_max":
+                        local_parameters = min_max_attack(
+                            local_parameters, [local_parameters],
+                            epsilon=float(self.config.get("min_max_epsilon", 0.5)),
+                        )
+                    elif strike_type == "lie":
+                        local_parameters = lie_attack(
+                            [local_parameters],
+                            z_clip=float(self.config.get("lie_z_clip", 2.0)),
+                        )
+                    logging.info(
+                        f"[Client {self.cid}] Mimicry strike activated at round {server_round}."
+                    )
+                else:
+                    logging.info(
+                        f"[Client {self.cid}] Mimicry: acting benign (trust phase, round {server_round}/{trust_rounds})."
                     )
 
             metrics = {

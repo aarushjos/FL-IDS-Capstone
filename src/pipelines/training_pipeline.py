@@ -71,6 +71,10 @@ def _make_client(cid: int, is_poisoned: bool, model_cfg: dict, fed_cfg: dict, at
         "inject_ratio": attack_cfg["inject_ratio"],
         "scale_to_benign_norm": attack_cfg["scale_to_benign_norm"],
         "benign_norm_target": 1.0,
+        "min_max_epsilon": float(attack_cfg.get("min_max_epsilon", 0.5)),
+        "lie_z_clip": float(attack_cfg.get("lie_z_clip", 2.0)),
+        "trust_rounds": int(attack_cfg.get("trust_rounds", 5)),
+        "strike_attack_type": str(attack_cfg.get("strike_attack_type", "min_max")),
     }
 
     return FLIDSClient(
@@ -95,6 +99,9 @@ def _build_strategy(strategy_name: str, initial_parameters):
         return FullModelCosineAggregator(initial_parameters=initial_parameters)
     elif strategy_name == "final_no_simplex":
         return FinalLayerNoSimplexAggregator(initial_parameters=initial_parameters)
+    elif strategy_name == "hra":
+        from src.components.server.hra_aggregator import HRABaseline
+        return HRABaseline(initial_parameters=initial_parameters)
     else:
         return get_baseline_strategy(strategy_name)
 

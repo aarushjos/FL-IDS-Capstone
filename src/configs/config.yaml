@@ -33,7 +33,7 @@ data:
 attack:
   attacker_ratio: 0.0         # Start at 0.0 for Phase 1; set to 0.10 / 0.30 / 0.50 for Phase 2
   attack_start_round: 11      # Byzantine injection begins after clean Phase 1 rounds
-  attack_type: "label_flip"   # "label_flip" | "backdoor" | "both" | "sign_flip"
+  attack_type: "label_flip"   # "label_flip" | "backdoor" | "both" | "sign_flip" | "min_max" | "min_sum" | "lie" | "trust_then_strike"
   # Label-flip settings (Targeted Semantic Attack: DDOS attack-HOIC → Benign)
   # IDS2018 LabelEncoder: 0=Benign, 4=DDOS attack-HOIC, 5=DDOS attack-LOIC-UDP
   source_class: 4             # Class index to flip FROM (DDOS attack-HOIC = 4 in IDS2018)
@@ -43,6 +43,13 @@ attack:
   trigger_values: [999999, 1] # Exact values injected (Flow_Duration, ACK_Flag_Count)
   inject_ratio: 0.1           # Fraction of local data poisoned with trigger
   scale_to_benign_norm: true  # Stealth-scale gradient L2-norm to match benign average
+  # Min-Max / Min-Sum attack settings (NDSS 2021)
+  min_max_epsilon: 0.5        # Max deviation bound from nearest benign client
+  # LIE attack settings (FedLAW 2026 / ICLR)
+  lie_z_clip: 2.0             # z-factor: how many std devs outside benign mean to place update
+  # Adaptive Mimicry attack settings (HRA 2026)
+  trust_rounds: 5             # Number of rounds to act benign before striking
+  strike_attack_type: "min_max"  # Attack type to activate after trust phase ends
 
 # ─── Defense Pipeline (Server-Side) ──────────────────────────────
 defense:
@@ -66,6 +73,10 @@ defense:
   # MSFT Triage (Novelty) — Multi-Stage Final-Layer Triage
   triage_soft_threshold: -2.0  # Clients below this MAD score go to SVD stage 2 (wider net than mad_threshold=-3.0)
   svd_keep_ratio: 0.9          # Fraction of singular values to keep in spectral filter
+
+  # HRA Baseline thresholds (HRA 2026) — distance-normalised to [0,1]
+  hra_t_low: 0.3               # Below this: fully penalised (phi=0)
+  hra_t_high: 0.7              # Above this: fully trusted (phi=1)
 
 # ─── Evaluation ───────────────────────────────────────────────────
 evaluation:

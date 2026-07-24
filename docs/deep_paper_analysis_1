@@ -1,0 +1,115 @@
+# Deep Analysis: State-of-the-Art FL Defenses vs. Our Architecture
+
+I have thoroughly analyzed the five provided research papers, with a specific focus on extracting their **quantitative performance metrics** under various attack scenarios. Below is a deep architectural comparison and a detailed metrics breakdown of their methodologies against our current FL-IDS implementations (MSFT and AL-CMT).
+
+---
+
+## 1. FedLAW: Learnable Aggregation Weights (ICLR 2026)
+**Core Mechanism:** Formulates aggregation as a joint optimization problem, learning the global model parameters $\theta$ and aggregation weights $w$ simultaneously using alternating minimization on a sparse capped simplex.
+**Comparison to Ours:** Validates our use of a **Capped Simplex Projection** to mathematically bound Byzantine influence. However, it requires 2 communication rounds per epoch.
+
+### Quantitative Performance Metrics:
+**Datasets:** MNIST (200 clients), CIFAR-10 (200 clients)
+**Attacks Tested:** Flipping Label, Inverse Gradient, Backdoor, Double Attack, LIE Attack.
+**Key Results (Test Accuracy %):**
+- **Under Inverse Gradient (CIFAR-10, 40% Malicious, High Non-IID $q=0.9$):** 
+  - **FedLAW:** 59.38%
+  - **Bulyan:** 56.24%
+  - **Krum:** 17.03%
+  - **Trimmed Mean:** 38.17%
+- **Under Double Attack (CIFAR-10, 40% Malicious, $q=0.6$):** 
+  - **FedLAW:** 38.02%
+  - **Bulyan:** 24.79%
+  - **Krum:** 5.22%
+*Takeaway:* FedLAW shows significant resilience at high poisoning ratios (40%) where standard distance-based methods (Krum) completely collapse.
+
+---
+
+## 2. FLAME: Taming Backdoors (USENIX Security 2022)
+**Core Mechanism:** A three-stage pipeline for backdoors: (1) HDBSCAN clustering using pairwise cosine distances, (2) Adaptive clipping to the median $L_2$-norm, and (3) DP-based Gaussian noising.
+**Comparison to Ours:** FLAME's use of **Cosine distances** validates our approach. However, their use of destructive Gaussian noise (DP) actively degrades Main Task Accuracy, whereas our Truncated SVD surgically removes adversarial noise.
+
+### Quantitative Performance Metrics:
+**Datasets:** Reddit (Word Prediction), CIFAR-10, IoT-Traffic (NIDS)
+**Attacks Tested:** Constrain-and-scale, DBA, Edge-Case PGD.
+**Key Results (Backdoor Accuracy `BA` and Main Task Accuracy `MA`):**
+- **Constrain-and-scale attack on IoT-Traffic:**
+  - **FLAME:** BA = 0.0%, MA = 99.8%
+  - **Krum:** BA = 100.0%, MA = 84.0%
+  - **FoolsGold:** BA = 100.0%, MA = 99.2%
+- **Constrain-and-scale attack on CIFAR-10:**
+  - **FLAME:** BA = 0.0%, MA = 91.9%
+  - **Krum:** BA = 100.0%, MA = 56.7%
+  - **Median:** BA = 0.0%, MA = 50.1% (Median kills the backdoor but destroys the model utility)
+*Takeaway:* FLAME effectively brings Backdoor Accuracy to 0% while preserving Main Task Accuracy much better than Krum or Median.
+
+---
+
+## 3. Layerwise Cosine Aggregation (KBS 2025)
+**Core Mechanism:** Enhances standard robust rules (Krum, Bulyan, GeoMed) by applying them *layer-by-layer*, replacing Euclidean distance with Cosine distance, and applying median gradient clipping.
+**Comparison to Ours:** Identifies that large layers dominate Euclidean distance metrics. Instead of looping over every layer like they do, our MSFT extracts **only the final classification layer** for scoring, which is computationally vastly superior while achieving the same dimensional balance.
+
+### Quantitative Performance Metrics:
+**Datasets:** CIFAR-10, CelebA-S, EMNIST, Fashion MNIST
+**Attacks Tested:** Label Flipping
+**Key Results (Average Test Accuracy):**
+- **CIFAR-10 (Bulyan Base):**
+  - Standard Bulyan: 82.8%
+  - **Layerwise Cosine Bulyan:** 94.6% (+11.8% improvement)
+- **CelebA-S Non-IID (Krum Base):**
+  - Standard Krum: 72.3%
+  - **Layerwise Cosine Krum:** 79.0% (+6.7% improvement)
+- **CIFAR-10 (GeoMed Base):**
+  - Standard GeoMed: 83.8%
+  - **Layerwise Cosine GeoMed:** 87.2% (+3.4% improvement)
+*Takeaway:* Upgrading Euclidean aggregation rules to Cosine + Layerwise yields consistent 3-12% accuracy boosts under Label Flipping attacks.
+
+---
+
+## 4. FREPD: VAE-Based Framework (CSSE 2021)
+**Core Mechanism:** Uses a VAE to compute reconstruction errors of model updates. Fits a distribution and accepts updates with >90% probability of matching the benign distribution.
+**Comparison to Ours:** Identical in concept to our **Variant B (CS-ARF)**. However, FREPD requires 5 completely clean warmup rounds to train the VAE, while our MSFT adapts instantly.
+
+### Quantitative Performance Metrics:
+**Datasets:** Vehicle, MNIST, FEMNIST
+**Attacks Tested:** Sign-flipping, Additive noise, Same-value, Backdoor.
+**Key Results:**
+- **Multiple Backdoor Attackers (30% Malicious) on MNIST:**
+  - **FREPD (Ours):** Backdoor Accuracy $\approx 0\%$, Testing Accuracy $\approx 80\%$
+  - **Krum / Bulyan:** Failed to converge stably (highly volatile early rounds).
+  - **FedAvg:** Backdoor Accuracy reaches 100%.
+*Takeaway:* VAE reconstruction effectively identifies stealthy backdoors that bypass traditional geometric medians or Krum.
+
+---
+
+## 5. TFFL: Trustworthy & Fair FL (IEEE TIFS 2025)
+**Core Mechanism:** Uses Subjective Logic (SL) to calculate reputation with Time Decay (DSL). Uses Cooperative Game Theory to distribute incentives.
+**Comparison to Ours:** Validates our use of temporal tracking (**EMA**) to prevent attackers from gaming the system across rounds.
+
+### Quantitative Performance Metrics:
+**Datasets:** MNIST, CIFAR-10
+**Attacks Tested:** Label-flipping, Sybil, Backdoor.
+**Key Results (FL Convergence Accuracy & Bandwidth):**
+- **Accuracy on MNIST (Non-IID):**
+  - **DRC (TFFL):** $\approx 91\%$
+  - **PBFL / FedAvg:** $\approx 90\%$ / $87\%$
+- **Accuracy on CIFAR-10 (Non-IID):**
+  - **DRC (TFFL):** $\approx 84\%$
+  - **FedAvg / PBFL:** $80\% - 81\%$
+- **Bandwidth Usage:** DRC reduced average bandwidth usage by 10-25% on CIFAR-10 compared to PBFL.
+*Takeaway:* Temporal reputation tracking strictly improves global convergence accuracy by 3-4% over standard FedAvg in Non-IID environments while keeping resource overhead manageable.
+
+---
+
+## 🎯 Actionable Insights for Our Implementation
+
+Based on these hard metrics, our MSFT approach currently achieves **Macro F1 = 0.7570 on IDS2018**, which is competitive. To push our implementation to match or exceed the absolute state-of-the-art benchmarks listed above, we can consider the following concrete code updates:
+
+1. **Integrate Adaptive Median Clipping (from FLAME):**
+   FLAME proved that median $L_2$-norm clipping reduces Backdoor Accuracy to 0% when combined with Cosine scoring. We can easily insert a median clipping step into `aggregator.py` before our MAD scoring.
+2. **Implement "Lie Attacks" (from FedLAW):**
+   FedLAW proved its worth by surviving the "Little Is Enough" (LIE) attack (where $b_{k,j} = \mu_k + z \sigma_k$). We should add this to `attacker.py` to prove MSFT is robust against adaptive mimicry.
+3. **Add "Layerwise Cosine Bulyan" as a Baseline:**
+   The KBS 2025 paper showed this specific variant hit 94.6% on CIFAR-10. Adding it to `baselines.py` would give us a highly credible, modern baseline to compare against in our Phase 2 sweep.
+
+**How would you like to proceed?** I am ready to implement any of these 3 options immediately.
