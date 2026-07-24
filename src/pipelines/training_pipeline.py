@@ -195,8 +195,8 @@ def run_experiment(results_suffix: str = "", strategy_name: str = "robust") -> N
                 )
 
                 # Log trust scores for heatmap (only for strategies that track reputation)
-                if hasattr(strategy, "reputation_scores"):
-                    log_trust_scores(server_round, strategy.reputation_scores, filename=trust_file)
+                if hasattr(strategy, "reputation"):
+                    log_trust_scores(server_round, strategy.reputation, filename=trust_file)
 
             # Server-side evaluation + CSV logging
             eval_result = server_evaluate_fn(server_round, ndarrays_to_parameters(global_params), {})

@@ -1,0 +1,6 @@
+[2026-07-25 02:23:57,761] 33 root - INFO - [Server] Loaded baseline checkpoint from C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-25 02:23:57,771] 33 root - INFO - [Server] Loaded baseline checkpoint from C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-25 02:23:57,780] 33 root - INFO - [Server] Loaded baseline checkpoint from C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-25 02:23:57,787] 33 root - INFO - [Server] Loaded baseline checkpoint from C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-25 02:23:57,795] 33 root - INFO - [Server] Loaded baseline checkpoint from C:\Users\rauna\Videos\FL IDS\artifacts\models\baseline_mlp.pth
+[2026-07-25 02:23:57,799] 278 root - INFO - [Aggregator] AL-CMT initialized — cap_t=0.0714, temperature=2.0, ema_momentum=0.9

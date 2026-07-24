@@ -13,12 +13,12 @@ model:
 
 # ─── Federated Learning ──────────────────────────────────────────
 federated:
-  num_clients: 20             # Total simulated IoT edge gateways
-  clients_per_round: 20       # Clients sampled per round (40% of 50)
-  num_rounds: 5              # Increased from 30 — more rounds for rare-class convergence
-  local_epochs: 3             # To match centralized baseline (3 epochs per round)
-  learning_rate: 0.001      # Adam default 0.001; matches centralized baseline (changed to 0.0003 for FL stability)
-  batch_size: 256             # Large enough to sample minority classes per batch
+  num_clients: 50             # Total simulated IoT edge gateways (matches 50 on-disk shards)
+  clients_per_round: 20       # 40% sampling per round — standard FL setup
+  num_rounds: 30              # 10 clean + 20 attack rounds (attack_start_round=11)
+  local_epochs: 3             # 3 epochs per round for stable convergence
+  learning_rate: 0.001        # Adam default
+  batch_size: 512             # RTX 3050Ti: larger batches = better GPU utilisation for tiny MLP
   optimizer: "adam"
 
 # ─── Data Partitioning ───────────────────────────────────────────

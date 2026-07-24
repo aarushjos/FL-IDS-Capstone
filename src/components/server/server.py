@@ -29,7 +29,7 @@ def get_initial_parameters() -> Parameters:
         if checkpoint.exists():
             saved = torch.load(checkpoint, map_location="cpu")
             state_dict = saved.get("model_state_dict", saved)
-            model.load_state_dict(state_dict)
+            model.load_state_dict(state_dict, strict=False)
             logging.info(f"[Server] Loaded baseline checkpoint from {checkpoint}")
         else:
             logging.info("[Server] No checkpoint found — using random initial parameters.")

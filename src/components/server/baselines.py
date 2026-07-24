@@ -4,7 +4,6 @@ from flwr.common import Parameters, FitRes, EvaluateRes, ndarrays_to_parameters,
 from typing import List, Tuple, Optional, Union
 
 from src.configs.config import CONFIG
-from src.components.server.server import get_initial_parameters
 
 
 class FedAvgBaseline(fl.server.strategy.Strategy):
@@ -129,8 +128,10 @@ class KrumBaseline(fl.server.strategy.Strategy):
         return None
 
 
-def get_baseline_strategy(name: str) -> fl.server.strategy.Strategy:
-    initial_parameters = get_initial_parameters()
+def get_baseline_strategy(name: str, initial_parameters=None) -> fl.server.strategy.Strategy:
+    if initial_parameters is None:
+        from src.components.server.server import get_initial_parameters
+        initial_parameters = get_initial_parameters()
     fed_cfg = CONFIG["federated"]
     defense_cfg = CONFIG["defense"]
 
@@ -266,6 +267,6 @@ class LayerwiseCosineKrumBaseline(fl.server.strategy.Strategy):
     def aggregate_evaluate(self, server_round, results, failures):
         return None, {}
 
+
     def evaluate(self, server_round, parameters):
         return None
-
