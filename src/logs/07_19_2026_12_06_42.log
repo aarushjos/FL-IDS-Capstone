@@ -1,0 +1,990 @@
+[2026-07-19 12:06:44,694] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:44,694] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:44,740] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:44,885] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:44,985] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:45,021] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:50,365] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:52,124] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:53,531] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:55,679] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:06:58,508] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:05,733] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:07,720] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:16,660] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:17,346] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:20,921] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:20,930] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:21,442] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:22,217] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:07:27,625] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,318] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,322] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,324] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,327] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,335] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,337] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,368] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,491] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,604] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,723] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,728] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:00,799] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,416] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,603] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,729] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,756] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,821] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,843] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:01,904] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:02,028] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,950] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,950] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,953] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,964] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,964] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:05,965] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:06,697] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:08,399] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:12,682] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:16,052] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:28,652] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:35,035] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:36,885] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:38,059] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:39,347] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:44,915] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:50,610] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:53,091] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:54,341] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:09:55,616] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,529] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,531] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,533] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,538] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,544] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,832] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,837] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,901] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:50,993] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,134] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,379] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,428] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,506] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,756] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:51,904] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:52,172] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:52,189] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:52,344] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:52,386] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,096] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,099] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,102] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,102] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,106] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:55,109] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:10:56,949] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:00,444] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:00,595] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:05,802] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:11,332] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:12,107] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:13,892] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:21,041] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:23,634] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:27,461] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:28,082] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:29,791] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:29,826] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:11:30,212] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:07,962] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:07,964] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:07,967] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:07,972] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:07,985] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,029] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,079] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,229] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,251] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,289] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,302] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,344] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,512] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,556] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,706] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,780] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,783] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,855] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:08,858] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:09,162] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,848] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,848] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,852] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,854] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,860] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:12,862] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:15,618] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:16,274] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:19,729] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:20,729] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:24,957] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:28,540] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:34,777] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:42,430] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:42,620] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:44,130] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:44,861] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:47,346] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:49,017] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:13:50,500] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,005] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,009] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,011] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,016] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,023] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,145] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,168] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,220] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,271] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,310] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,502] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,787] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:06,986] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:07,299] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:07,677] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:07,716] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:07,824] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:07,984] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:08,117] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,510] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,512] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,514] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,520] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,525] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:10,525] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:13,021] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:17,027] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:18,154] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:20,497] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:22,957] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:26,007] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:31,414] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:32,859] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:34,668] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:35,392] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:40,708] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:40,852] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:43,252] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:15:45,956] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,561] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,564] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,568] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,574] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,578] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,578] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,612] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,717] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,744] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:19,955] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:20,167] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:20,260] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:20,603] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:20,759] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:20,953] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:21,024] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:21,213] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:21,248] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:21,380] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+[2026-07-19 12:17:21,473] 268 flwr - WARNING - DEPRECATED FEATURE: `client_fn` now expects a signature `def client_fn(context: Context)`.The provided `client_fn` has signature: {'cid': <Parameter "cid: str">}. You can import the `Context` like this: `from flwr.common import Context`
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        

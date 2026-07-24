@@ -13,10 +13,10 @@ model:
 
 # ─── Federated Learning ──────────────────────────────────────────
 federated:
-  num_clients: 50             # Total simulated IoT edge gateways
+  num_clients: 20             # Total simulated IoT edge gateways
   clients_per_round: 20       # Clients sampled per round (40% of 50)
-  num_rounds: 50              # Increased from 30 — more rounds for rare-class convergence
-  local_epochs: 5             # Increased from 3 — more local training to learn minority classes
+  num_rounds: 5              # Increased from 30 — more rounds for rare-class convergence
+  local_epochs: 3             # To match centralized baseline (3 epochs per round)
   learning_rate: 0.001      # Adam default 0.001; matches centralized baseline (changed to 0.0003 for FL stability)
   batch_size: 256             # Large enough to sample minority classes per batch
   optimizer: "adam"
